@@ -7,3 +7,12 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\BUS\bin\Debug\
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\BUS\obj\Debug\BUS.dll
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\BUS\obj\Debug\BUS.pdb
+F:\EmployeesManagerment\BUS\bin\Debug\BUS.dll
+F:\EmployeesManagerment\BUS\bin\Debug\BUS.pdb
+F:\EmployeesManagerment\BUS\bin\Debug\DAL.dll
+F:\EmployeesManagerment\BUS\bin\Debug\Entity.dll
+F:\EmployeesManagerment\BUS\bin\Debug\DAL.pdb
+F:\EmployeesManagerment\BUS\bin\Debug\Entity.pdb
+F:\EmployeesManagerment\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+F:\EmployeesManagerment\BUS\obj\Debug\BUS.dll
+F:\EmployeesManagerment\BUS\obj\Debug\BUS.pdb

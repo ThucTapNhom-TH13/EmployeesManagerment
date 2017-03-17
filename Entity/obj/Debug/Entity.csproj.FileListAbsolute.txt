@@ -3,3 +3,8 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\Entity\bin\Deb
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\Entity\obj\Debug\Entity.dll
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\Entity\obj\Debug\Entity.pdb
+F:\EmployeesManagerment\Entity\bin\Debug\Entity.dll
+F:\EmployeesManagerment\Entity\bin\Debug\Entity.pdb
+F:\EmployeesManagerment\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+F:\EmployeesManagerment\Entity\obj\Debug\Entity.dll
+F:\EmployeesManagerment\Entity\obj\Debug\Entity.pdb

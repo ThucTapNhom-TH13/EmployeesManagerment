@@ -71,11 +71,5 @@ namespace Entity
             this.soGio = sogio;
             this.nhiemVu = nhiemvu;
         }
-        public tblThamgia( float sogio, string nhiemvu)
-        {
-            
-            this.soGio = sogio;
-            this.nhiemVu = nhiemvu;
-        }
     }
 }

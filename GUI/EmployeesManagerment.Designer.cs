@@ -84,10 +84,10 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.txtSogio_DA = new System.Windows.Forms.TextBox();
-            this.txtNV_DA = new System.Windows.Forms.TextBox();
-            this.txtTenNV_DA = new System.Windows.Forms.TextBox();
-            this.txtMANV_DA = new System.Windows.Forms.TextBox();
+            this.txtSogio_TGIA = new System.Windows.Forms.TextBox();
+            this.txtNV_TGIA = new System.Windows.Forms.TextBox();
+            this.txtMaDA_TGIA = new System.Windows.Forms.TextBox();
+            this.txtMANV_TGIA = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpNgayKT = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayBD = new System.Windows.Forms.DateTimePicker();
@@ -661,10 +661,10 @@
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label28);
             this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.txtSogio_DA);
-            this.groupBox4.Controls.Add(this.txtNV_DA);
-            this.groupBox4.Controls.Add(this.txtTenNV_DA);
-            this.groupBox4.Controls.Add(this.txtMANV_DA);
+            this.groupBox4.Controls.Add(this.txtSogio_TGIA);
+            this.groupBox4.Controls.Add(this.txtNV_TGIA);
+            this.groupBox4.Controls.Add(this.txtMaDA_TGIA);
+            this.groupBox4.Controls.Add(this.txtMANV_TGIA);
             this.groupBox4.Location = new System.Drawing.Point(9, 274);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(270, 194);
@@ -725,9 +725,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(22, 64);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(76, 13);
+            this.label28.Size = new System.Drawing.Size(52, 13);
             this.label28.TabIndex = 5;
-            this.label28.Text = "Tên nhân viên";
+            this.label28.Text = "Mã dự án";
             // 
             // label27
             // 
@@ -738,33 +738,33 @@
             this.label27.TabIndex = 4;
             this.label27.Text = "Mã nhân viên";
             // 
-            // txtSogio_DA
+            // txtSogio_TGIA
             // 
-            this.txtSogio_DA.Location = new System.Drawing.Point(128, 115);
-            this.txtSogio_DA.Name = "txtSogio_DA";
-            this.txtSogio_DA.Size = new System.Drawing.Size(125, 20);
-            this.txtSogio_DA.TabIndex = 3;
+            this.txtSogio_TGIA.Location = new System.Drawing.Point(128, 115);
+            this.txtSogio_TGIA.Name = "txtSogio_TGIA";
+            this.txtSogio_TGIA.Size = new System.Drawing.Size(125, 20);
+            this.txtSogio_TGIA.TabIndex = 3;
             // 
-            // txtNV_DA
+            // txtNV_TGIA
             // 
-            this.txtNV_DA.Location = new System.Drawing.Point(128, 88);
-            this.txtNV_DA.Name = "txtNV_DA";
-            this.txtNV_DA.Size = new System.Drawing.Size(125, 20);
-            this.txtNV_DA.TabIndex = 2;
+            this.txtNV_TGIA.Location = new System.Drawing.Point(128, 88);
+            this.txtNV_TGIA.Name = "txtNV_TGIA";
+            this.txtNV_TGIA.Size = new System.Drawing.Size(125, 20);
+            this.txtNV_TGIA.TabIndex = 2;
             // 
-            // txtTenNV_DA
+            // txtMaDA_TGIA
             // 
-            this.txtTenNV_DA.Location = new System.Drawing.Point(128, 61);
-            this.txtTenNV_DA.Name = "txtTenNV_DA";
-            this.txtTenNV_DA.Size = new System.Drawing.Size(125, 20);
-            this.txtTenNV_DA.TabIndex = 1;
+            this.txtMaDA_TGIA.Location = new System.Drawing.Point(128, 61);
+            this.txtMaDA_TGIA.Name = "txtMaDA_TGIA";
+            this.txtMaDA_TGIA.Size = new System.Drawing.Size(125, 20);
+            this.txtMaDA_TGIA.TabIndex = 1;
             // 
-            // txtMANV_DA
+            // txtMANV_TGIA
             // 
-            this.txtMANV_DA.Location = new System.Drawing.Point(128, 34);
-            this.txtMANV_DA.Name = "txtMANV_DA";
-            this.txtMANV_DA.Size = new System.Drawing.Size(125, 20);
-            this.txtMANV_DA.TabIndex = 0;
+            this.txtMANV_TGIA.Location = new System.Drawing.Point(128, 34);
+            this.txtMANV_TGIA.Name = "txtMANV_TGIA";
+            this.txtMANV_TGIA.Size = new System.Drawing.Size(125, 20);
+            this.txtMANV_TGIA.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -1575,10 +1575,10 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtSogio_DA;
-        private System.Windows.Forms.TextBox txtNV_DA;
-        private System.Windows.Forms.TextBox txtTenNV_DA;
-        private System.Windows.Forms.TextBox txtMANV_DA;
+        private System.Windows.Forms.TextBox txtSogio_TGIA;
+        private System.Windows.Forms.TextBox txtNV_TGIA;
+        private System.Windows.Forms.TextBox txtMaDA_TGIA;
+        private System.Windows.Forms.TextBox txtMANV_TGIA;
         private System.Windows.Forms.Button btnSua_Duan;
         private System.Windows.Forms.Button btnXoa_Duan;
         private System.Windows.Forms.Button btnThem_Duan;

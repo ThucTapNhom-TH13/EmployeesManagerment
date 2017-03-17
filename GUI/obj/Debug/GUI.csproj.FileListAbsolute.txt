@@ -22,3 +22,18 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.exe
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.exe.config
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.exe
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.exe
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\BUS.dll
+F:\EmployeesManagerment\GUI\bin\Debug\Entity.dll
+F:\EmployeesManagerment\GUI\bin\Debug\DAL.dll
+F:\EmployeesManagerment\GUI\bin\Debug\BUS.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\Entity.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\DAL.pdb
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
