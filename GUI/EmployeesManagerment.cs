@@ -230,5 +230,10 @@ namespace GUI
             showThamgia(maduan);
             buidingTham_gia();
         }
+
+        private void dayOffTab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

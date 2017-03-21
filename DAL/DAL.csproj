@@ -43,6 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnect.cs" />
     <Compile Include="tblDuAn_DAL.cs" />
+    <Compile Include="tblNghiLam_DAL.cs" />
     <Compile Include="tblNhanVien_DAL.cs" />
     <Compile Include="tblThamGia_DAL.cs" />
   </ItemGroup>

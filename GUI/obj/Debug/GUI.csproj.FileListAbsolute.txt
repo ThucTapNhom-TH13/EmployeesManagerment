@@ -22,3 +22,10 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.exe
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\bin\Debug\GUI.exe.config
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.exe
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache

@@ -5,3 +5,6 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\DAL\bin\Debug\
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.dll
 C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.pdb
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.dll
+C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.pdb

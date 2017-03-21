@@ -1261,6 +1261,7 @@
             this.dayOffTab.TabIndex = 3;
             this.dayOffTab.Text = "Nghỉ làm";
             this.dayOffTab.UseVisualStyleBackColor = true;
+            this.dayOffTab.Click += new System.EventHandler(this.dayOffTab_Click);
             // 
             // dayOffButton3
             // 
