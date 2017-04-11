@@ -29,3 +29,6 @@ C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolv
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.exe.config
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.exe
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.pdb

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entity;
 
 namespace DAL
 {
@@ -25,6 +26,55 @@ namespace DAL
             da.Fill(dt);
             conn.Close();
             return dt;
+        }
+        public static void ThemThamGia(tblThamgia tgia)
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand cmd = new SqlCommand("THEM_THAM_GIA", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MA_NV", SqlDbType.Int);
+            cmd.Parameters.Add("@MA_DA", SqlDbType.Int);
+            cmd.Parameters.Add("@SO_GIO", SqlDbType.Float);
+            cmd.Parameters.Add("@NHIEM_VU", SqlDbType.NVarChar, 50);
+            cmd.Parameters["@MA_DA"].Value = tgia.MaDA;
+            cmd.Parameters["@MA_NV"].Value = tgia.MaNV;
+            cmd.Parameters["@SO_GIO"].Value = tgia.SoGio;
+            cmd.Parameters["@NHIEM_VU"].Value = tgia.NhiemVu;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static void SuaThamGia(tblThamgia tgia)
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand cmd = new SqlCommand("SUA_THAM_GIA", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MA_NV", SqlDbType.Int);
+            cmd.Parameters.Add("@MA_DA", SqlDbType.Int);
+            cmd.Parameters.Add("@SO_GIO", SqlDbType.Float);
+            cmd.Parameters.Add("@NHIEM_VU", SqlDbType.NVarChar, 50);
+            cmd.Parameters["@MA_DA"].Value = tgia.MaDA;
+            cmd.Parameters["@MA_NV"].Value = tgia.MaNV;
+            cmd.Parameters["@SO_GIO"].Value = tgia.SoGio;
+            cmd.Parameters["@NHIEM_VU"].Value = tgia.NhiemVu;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static void XoaThamGia(int maduan, int manv)
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand cmd = new SqlCommand("XOA_THAM_GIA", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MA_DA", SqlDbType.Int);
+            cmd.Parameters["@MA_DA"].Value = maduan;
+            cmd.Parameters.Add("@MA_NV", SqlDbType.Int);
+            cmd.Parameters["@MA_NV"].Value = manv;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
