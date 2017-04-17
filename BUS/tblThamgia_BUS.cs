@@ -14,5 +14,19 @@ namespace BUS
         {
             return tblThamGia_DAL.getThamGia(maduan);
         }
+
+        public static void addThamGia(tblThamgia tgia)
+        {
+            tblThamGia_DAL.ThemThamGia(tgia);
+        }
+        public static void updateThamGia(tblThamgia tgia)
+        {
+            tblThamGia_DAL.SuaThamGia(tgia);
+        }
+        public static void deleteThamGia(int mada, int manv)
+        {
+            tblThamGia_DAL.XoaThamGia(mada, manv);
+        }
+
     }
 }

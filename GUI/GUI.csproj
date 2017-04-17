@@ -85,6 +85,10 @@
       <Project>{a3f25698-e522-4842-b5d6-dd5c5f64c246}</Project>
       <Name>BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b4e2eb6d-af34-423e-8f3f-973d1808c9a9}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{a7e38b8c-40b5-4490-8c65-f192596645d0}</Project>
       <Name>Entity</Name>
