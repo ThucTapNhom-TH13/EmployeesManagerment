@@ -10,3 +10,12 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\BUS\obj\Debug\
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\BUS\obj\Debug\BUS.dll
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\BUS\obj\Debug\BUS.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\obj\Debug\BUS.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\obj\Debug\BUS.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\BUS.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\BUS.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\DAL.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\Entity.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\DAL.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\Entity.pdb

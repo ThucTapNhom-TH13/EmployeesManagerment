@@ -8,3 +8,7 @@ C:\Users\Phuong Linh\Desktop\EmployeesManagerment\Entity\bin\Debug\Entity.pdb
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\Entity\obj\Debug\Entity.dll
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\Entity\obj\Debug\Entity.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\bin\Debug\Entity.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\bin\Debug\Entity.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\obj\Debug\Entity.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\obj\Debug\Entity.pdb

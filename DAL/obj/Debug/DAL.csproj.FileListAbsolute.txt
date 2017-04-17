@@ -8,3 +8,10 @@ C:\Users\lehuy\OneDrive\Tài liệu\GitHub\EmployeesManagerment\DAL\obj\Debug\
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.dll
 C:\Users\Phuong Linh\Desktop\EmployeesManagerment\DAL\obj\Debug\DAL.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\obj\Debug\DAL.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\obj\Debug\DAL.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\DAL.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\DAL.pdb
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\Entity.dll
+C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\Entity.pdb
