@@ -29,3 +29,10 @@ F:\EmployeesManagerment\DAL\bin\Debug\Entity.pdb
 F:\EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\EmployeesManagerment\DAL\obj\Debug\DAL.dll
 F:\EmployeesManagerment\DAL\obj\Debug\DAL.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\bin\Debug\DAL.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\bin\Debug\DAL.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\bin\Debug\Entity.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\bin\Debug\Entity.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\DAL\obj\Debug\DAL.pdb

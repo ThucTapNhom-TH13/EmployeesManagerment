@@ -77,3 +77,15 @@ F:\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\GUI.exe.config
 C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.exe
 C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\GUI.exe
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\GUI.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\BUS.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\DAL.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\Entity.dll
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\BUS.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\DAL.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\Entity.pdb
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
