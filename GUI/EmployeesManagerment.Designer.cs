@@ -77,6 +77,7 @@
             this.departmentTable = new System.Windows.Forms.DataGridView();
             this.projectTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.btnXoa_NVDA = new System.Windows.Forms.Button();
             this.btnSua_NVDA = new System.Windows.Forms.Button();
             this.btnThem_NVDA = new System.Windows.Forms.Button();
@@ -161,7 +162,6 @@
             this.allDayOffLeaveTable = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.emplDayOffStaticTable = new System.Windows.Forms.DataGridView();
-            this.label28 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.emplTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -231,6 +231,7 @@
             this.emplButton2.TabIndex = 7;
             this.emplButton2.Text = "Sửa";
             this.emplButton2.UseVisualStyleBackColor = true;
+            this.emplButton2.Click += new System.EventHandler(this.emplButton2_Click);
             // 
             // emplButton3
             // 
@@ -240,6 +241,7 @@
             this.emplButton3.TabIndex = 6;
             this.emplButton3.Text = "Xóa";
             this.emplButton3.UseVisualStyleBackColor = true;
+            this.emplButton3.Click += new System.EventHandler(this.emplButton3_Click);
             // 
             // emplButton1
             // 
@@ -249,6 +251,7 @@
             this.emplButton1.TabIndex = 5;
             this.emplButton1.Text = "Thêm";
             this.emplButton1.UseVisualStyleBackColor = true;
+            this.emplButton1.Click += new System.EventHandler(this.emplButton1_Click);
             // 
             // groupBox1
             // 
@@ -375,6 +378,7 @@
             // 
             // emplDepartmentCombobox
             // 
+            this.emplDepartmentCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.emplDepartmentCombobox.FormattingEnabled = true;
             this.emplDepartmentCombobox.Location = new System.Drawing.Point(93, 223);
             this.emplDepartmentCombobox.Name = "emplDepartmentCombobox";
@@ -398,6 +402,9 @@
             // emplGenderCombobox
             // 
             this.emplGenderCombobox.FormattingEnabled = true;
+            this.emplGenderCombobox.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
             this.emplGenderCombobox.Location = new System.Drawing.Point(93, 90);
             this.emplGenderCombobox.Name = "emplGenderCombobox";
             this.emplGenderCombobox.Size = new System.Drawing.Size(130, 21);
@@ -421,6 +428,7 @@
             // 
             this.emplIDTxt.Location = new System.Drawing.Point(93, 37);
             this.emplIDTxt.Name = "emplIDTxt";
+            this.emplIDTxt.ReadOnly = true;
             this.emplIDTxt.Size = new System.Drawing.Size(130, 20);
             this.emplIDTxt.TabIndex = 0;
             // 
@@ -457,6 +465,8 @@
             this.employeesTable.Name = "employeesTable";
             this.employeesTable.Size = new System.Drawing.Size(490, 246);
             this.employeesTable.TabIndex = 0;
+            this.employeesTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesTable_CellClick);
+            this.employeesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesTable_CellContentClick);
             // 
             // departmentTab
             // 
@@ -671,6 +681,15 @@
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin nhân viên tham gia dự án";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(22, 64);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(52, 13);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Mã dự án";
             // 
             // btnXoa_NVDA
             // 
@@ -1449,15 +1468,6 @@
             this.emplDayOffStaticTable.Name = "emplDayOffStaticTable";
             this.emplDayOffStaticTable.Size = new System.Drawing.Size(480, 424);
             this.emplDayOffStaticTable.TabIndex = 0;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(22, 64);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(52, 13);
-            this.label28.TabIndex = 11;
-            this.label28.Text = "Mã dự án";
             // 
             // EmployeesManagerment
             // 

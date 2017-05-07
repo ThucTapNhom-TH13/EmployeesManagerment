@@ -15,3 +15,10 @@ C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\DAL.
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\DAL.pdb
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\Entity.dll
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\DAL\bin\Debug\Entity.pdb
+D:\Github\DAL\bin\Debug\DAL.dll
+D:\Github\DAL\bin\Debug\DAL.pdb
+D:\Github\DAL\bin\Debug\Entity.dll
+D:\Github\DAL\bin\Debug\Entity.pdb
+D:\Github\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Github\DAL\obj\Debug\DAL.dll
+D:\Github\DAL\obj\Debug\DAL.pdb

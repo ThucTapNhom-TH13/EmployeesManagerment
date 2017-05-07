@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using Entity;
+using System.Data.SqlClient;
+
 namespace GUI
 {
     public partial class EmployeesManagerment : Form
@@ -358,12 +360,303 @@ namespace GUI
             showDu_An();
             buidingDu_An();
             enebalTHAM_GIA();
-
+            loadNhanVien();
         }
 
         private void dayOffTab_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadNhanVien()
+        {
+            DataView table = tblNhanVien_BUS.getAll();
+            employeesTable.DataSource = table;
+            readOnlyEmployeesViews(MODE_VIEW, true);
+
+            initEmployeesViews();
+
+            loadDepartments();
+        }
+
+        private void loadEmployeesProjects(int id)
+        {
+            DataView table = tblNhanVien_BUS.getProjects(id);
+            projectJoinedTable.DataSource = table;
+        }
+
+        private void employeesTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            initEmployeesViews();
+
+            int CurrentIndex = employeesTable.CurrentCell.RowIndex;
+            if (employeesTable.Rows[CurrentIndex].Cells[0].Value != null)
+            {
+                loadSupervisors(Int32.Parse(employeesTable.Rows[CurrentIndex].Cells[0].Value.ToString()));
+            }else
+            {
+                loadSupervisors(0);
+            }
+        }
+
+        private void emplButton2_Click(object sender, EventArgs e)
+        {
+            if ("Sửa".Equals(emplButton2.Text))
+            {
+                emplButton2.Text = "Lưu";
+                readOnlyEmployeesViews(MODE_EDIT, false);
+            }
+            else
+            {
+                emplButton2.Text = "Sửa";
+                if (!Catch.cNullTB(emplNameTxt.Text) & !Catch.cNullTB(emplIDTxt.Text))
+                {
+                    try
+                    {
+                        int id = Int32.Parse(emplIDTxt.Text.Trim());
+                        string name = emplNameTxt.Text.Trim();
+                        DateTime dob = emplDobTimepicker.Value;
+                        bool isMale = "nam".Equals(emplGenderCombobox.Text.Trim().ToLower()) ? true : false;
+                        String phone = emplPhoneNumTxt.Text.Trim();
+                        String address = emplAddressTxt.Text.Trim();
+                        decimal salary = Decimal.Parse(emplSalaryTxt.Text.Trim());
+                        int supervisorId = -1;
+                        if (!(emplSuperVisorCombobox.Text.Trim() == ""))
+                        {
+                            supervisorId = Int32.Parse(emplSuperVisorCombobox.Text.Trim());
+                        }
+                        int departmentId = -1;
+                        if (!(emplDepartmentCombobox.Text.Trim() == ""))
+                        {
+                            departmentId = Int32.Parse(emplDepartmentCombobox.Text.Trim());
+                        }
+
+                        NhanVien employee = new NhanVien(id, name, dob, isMale, phone, address, salary, supervisorId, departmentId);
+                        tblNhanVien_BUS.editEmployee(employee);
+                        loadNhanVien();
+                        readOnlyEmployeesViews(MODE_EDIT, true);
+                    }
+                    catch(Exception excep)
+                    {
+                        MessageBox.Show("Loi: " + excep.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập dữ liệu");
+                }
+            }
+        }
+
+        private void employeesTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void readOnlyEmployeesViews(int mode, bool isReadOnly)
+        {
+            emplNameTxt.ReadOnly = isReadOnly;
+            emplDobTimepicker.Enabled = !isReadOnly;
+            emplGenderCombobox.Enabled = !isReadOnly;
+            emplPhoneNumTxt.ReadOnly = isReadOnly;
+            emplAddressTxt.ReadOnly = isReadOnly;
+            emplSalaryTxt.ReadOnly = isReadOnly;
+            emplSuperVisorCombobox.Enabled = !isReadOnly;
+            emplDepartmentCombobox.Enabled = !isReadOnly;
+        }
+
+        private void loadDepartments()
+        {
+            tblNhanVien_BUS.loadDepartmentCombobox(emplDepartmentCombobox);
+        }
+
+        private void loadSupervisors(int id)
+        {
+            tblNhanVien_BUS.loadSupervisorComboBox(emplSuperVisorCombobox, id);
+        }
+
+        private void clearAllEmployeesViews()
+        {
+            emplIDTxt.Text = "";
+            emplAddressTxt.Text = "";
+            emplNameTxt.Text = "";
+            emplGenderCombobox.Text = "";
+            emplDepartmentCombobox.Text = "";
+            emplDobTimepicker.Text = "";
+            emplPhoneNumTxt.Text = "";
+            emplSalaryTxt.Text = "";
+            emplSuperVisorCombobox.Text = "";
+        }
+
+        private void initEmployeesViews()
+        {
+            int CurrentIndex = employeesTable.CurrentCell.RowIndex;
+
+            int id = 0;
+            if (employeesTable.Rows[CurrentIndex].Cells[0].Value != null)
+            {
+                emplIDTxt.Text = employeesTable.Rows[CurrentIndex].Cells[0].Value.ToString();
+                id = Int32.Parse(employeesTable.Rows[CurrentIndex].Cells[0].Value.ToString());
+            }
+            loadEmployeesProjects(id);
+            if (employeesTable.Rows[CurrentIndex].Cells[1].Value != null)
+            {
+                emplNameTxt.Text = employeesTable.Rows[CurrentIndex].Cells[1].Value.ToString();
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[2].Value != null)
+            {
+                String[] dateTime = employeesTable.Rows[CurrentIndex].Cells[2].Value.ToString().Split('/', ' ');
+                if(dateTime.Length > 2)
+                {
+                    DateTime date = new DateTime(Int32.Parse(dateTime[2]), Int32.Parse(dateTime[0]), Int32.Parse(dateTime[1]));
+                    emplDobTimepicker.Value = date;
+                }
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[3].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[3].Value.ToString();
+                String genderString = value.Equals("True") ? "Nam" : "Nữ";
+                emplGenderCombobox.Text = genderString;
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[4].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[4].Value.ToString();
+                emplPhoneNumTxt.Text = value;
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[5].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[5].Value.ToString();
+                emplAddressTxt.Text = value;
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[6].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[6].Value.ToString();
+                emplSalaryTxt.Text = value;
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[7].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[7].Value.ToString();
+                emplSuperVisorCombobox.Text = value;
+            }
+            if (employeesTable.Rows[CurrentIndex].Cells[8].Value != null)
+            {
+                String value = employeesTable.Rows[CurrentIndex].Cells[8].Value.ToString();
+                emplDepartmentCombobox.Text = value;
+            }
+        }
+
+        private void changeButtonsStatus(int mode)
+        {
+            switch (mode)
+            {
+                case MODE_ADD:
+                    emplButton1.Text = "Lưu";
+                    enableButtons(true, false, false);
+                    break;
+                case MODE_EDIT:
+                    emplButton2.Text = "Lưu";
+                    enableButtons(false, true, false);
+                    break;
+                default:
+                    emplButton1.Text = "Thêm";
+                    emplButton1.Text = "Sửa";
+                    emplButton1.Text = "Xóa";
+                    enableButtons(true, true, true);
+                    break;
+            }
+        }
+
+        private void enableButtons(bool isEnableAddButton, bool isEnableEditButton, bool isEnableDeleteButton)
+        {
+            emplButton1.Enabled = isEnableAddButton;
+            emplButton2.Enabled = isEnableEditButton;
+            emplButton3.Enabled = isEnableDeleteButton;
+        }
+
+        /************************** CuongCV *******************************/
+        private const int MODE_VIEW = 0;
+        private const int MODE_ADD = 1;
+        private const int MODE_EDIT = 2;
+        private const int MODE_DELETE = 3;
+
+        private void emplButton1_Click(object sender, EventArgs e)
+        {
+            if (emplButton1.Text.Equals("Thêm"))
+            {
+                clearAllEmployeesViews();
+                readOnlyEmployeesViews(MODE_ADD, false);
+                changeButtonsStatus(MODE_ADD);
+                loadSupervisors(0);
+            }else
+            {
+                if (!Catch.cNullTB(emplNameTxt.Text))
+                {
+                    try
+                    {
+                        string name = emplNameTxt.Text.Trim();
+                        DateTime dob = emplDobTimepicker.Value;
+                        bool isMale = "nam".Equals(emplGenderCombobox.Text.Trim().ToLower()) ? true : false;
+                        String phone = emplPhoneNumTxt.Text.Trim();
+                        String address = emplAddressTxt.Text.Trim();
+                        decimal salary = Decimal.Parse(emplSalaryTxt.Text.Trim());
+                        int supervisorId = -1;
+                        if (!(emplSuperVisorCombobox.Text.Trim() == ""))
+                        {
+                            supervisorId = Int32.Parse(emplSuperVisorCombobox.Text.Trim());
+                        }
+                        int departmentId = -1;
+                        if (!(emplDepartmentCombobox.Text.Trim() == ""))
+                        {
+                            departmentId = Int32.Parse(emplDepartmentCombobox.Text.Trim());
+                        }
+
+                        NhanVien employee = new NhanVien(0, name, dob, isMale, phone, address, salary, supervisorId, departmentId);
+                        tblNhanVien_BUS.addEmployee(employee);
+                        loadNhanVien();
+                        readOnlyEmployeesViews(MODE_VIEW, true);
+                        changeButtonsStatus(MODE_VIEW);
+                    }
+                    catch (Exception excep)
+                    {
+                        MessageBox.Show("Error: \n " + excep.ToString());
+                        readOnlyEmployeesViews(MODE_VIEW, true);
+                        changeButtonsStatus(MODE_VIEW);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập tên nhân viên");
+                }
+            }
+        }
+
+        private void emplButton3_Click(object sender, EventArgs e)
+        {
+            if (!Catch.cNullTB(emplIDTxt.Text))
+            {
+                try
+                {
+                    int id = Int32.Parse(emplIDTxt.Text.Trim());
+                    deleteEmployee(id);
+                    loadNhanVien();
+
+                }
+                catch (Exception excep)
+                {
+                    MessageBox.Show("Error: \n " + excep.ToString());
+                    readOnlyEmployeesViews(MODE_VIEW, true);
+                    changeButtonsStatus(MODE_VIEW);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chọn nhân viên cần xóa");
+            }
+        }
+
+        private void deleteEmployee(int id)
+        {
+            tblNhanVien_BUS.deleteEmployee(id);
         }
     }
 }

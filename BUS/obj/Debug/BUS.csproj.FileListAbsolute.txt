@@ -19,3 +19,12 @@ C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\DAL.
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\Entity.dll
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\DAL.pdb
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\BUS\bin\Debug\Entity.pdb
+D:\Github\BUS\bin\Debug\BUS.dll
+D:\Github\BUS\bin\Debug\BUS.pdb
+D:\Github\BUS\bin\Debug\DAL.dll
+D:\Github\BUS\bin\Debug\Entity.dll
+D:\Github\BUS\bin\Debug\DAL.pdb
+D:\Github\BUS\bin\Debug\Entity.pdb
+D:\Github\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\Github\BUS\obj\Debug\BUS.dll
+D:\Github\BUS\obj\Debug\BUS.pdb

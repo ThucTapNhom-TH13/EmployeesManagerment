@@ -12,3 +12,8 @@ C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\bin\Debug\E
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\bin\Debug\Entity.pdb
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\obj\Debug\Entity.dll
 C:\Users\Linh\Documents\ThucTapNhom-TH13-EmployeesManagerment\Entity\obj\Debug\Entity.pdb
+D:\Github\Entity\bin\Debug\Entity.dll
+D:\Github\Entity\bin\Debug\Entity.pdb
+D:\Github\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+D:\Github\Entity\obj\Debug\Entity.dll
+D:\Github\Entity\obj\Debug\Entity.pdb

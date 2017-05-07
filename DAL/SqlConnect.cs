@@ -12,7 +12,7 @@ namespace DAL
     {
         public static SqlConnection Connect()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=PHUONGLINH\SQLEXPRESS;Initial Catalog=EmployeesManagerment;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=BUMBLEBEE\SQLEXPRESS;Initial Catalog=EmployeesManagerment;Integrated Security=True");
             return conn;
         }
     }
