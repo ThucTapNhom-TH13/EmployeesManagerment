@@ -39,6 +39,21 @@ namespace DAL
             DataView dv = new DataView(dt);
             return dv;
         }
+        public static DataTable getNhanVienPB(int mapb)
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("XEM_NV_PB", conn);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@MA_PB", SqlDbType.Int);
+            command.Parameters["@MA_PB"].Value = mapb;
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = command;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
 
         public static DataView getProjects(int employeeId)
         {

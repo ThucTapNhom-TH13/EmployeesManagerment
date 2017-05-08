@@ -62,3 +62,15 @@ D:\Github\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 D:\Github\GUI\obj\Debug\GUI.EmployeesManagerment.resources
 D:\Github\GUI\obj\Debug\GUI.Properties.Resources.resources
 D:\Github\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.exe
+F:\EmployeesManagerment\GUI\bin\Debug\GUI.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\BUS.dll
+F:\EmployeesManagerment\GUI\bin\Debug\DAL.dll
+F:\EmployeesManagerment\GUI\bin\Debug\Entity.dll
+F:\EmployeesManagerment\GUI\bin\Debug\BUS.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\DAL.pdb
+F:\EmployeesManagerment\GUI\bin\Debug\Entity.pdb
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
+F:\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache

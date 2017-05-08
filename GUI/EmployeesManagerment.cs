@@ -19,6 +19,18 @@ namespace GUI
         {
             InitializeComponent();
         }
+        private void EmployeesManagerment_Load(object sender, EventArgs e)
+        {
+
+            Enebal();
+            showDu_An();
+            buidingDu_An();
+            enebalTHAM_GIA();
+            loadNhanVien();
+            EnebalPB();
+            showPhongBan();
+            buidingPhongBan();
+        }
 
         /// <summary>
         /// BANG DU AN
@@ -354,15 +366,12 @@ namespace GUI
                 MessageBox.Show("Chưa nhập dữ liệu");
             }
         }
-        private void EmployeesManagerment_Load(object sender, EventArgs e)
-        {
-            Enebal();
-            showDu_An();
-            buidingDu_An();
-            enebalTHAM_GIA();
-            loadNhanVien();
-        }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dayOffTab_Click(object sender, EventArgs e)
         {
 
@@ -657,6 +666,173 @@ namespace GUI
         private void deleteEmployee(int id)
         {
             tblNhanVien_BUS.deleteEmployee(id);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///Phong Ban
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        public void showPhongBan()
+        {
+            dgvPB.DataSource = PhongBan_BUS.loadPhongBan();
+        }
+        public void buidingPhongBan()
+        {
+            txtMaPB.DataBindings.Clear();
+            txtMaPB.DataBindings.Add("Text", dgvPB.DataSource, "maPB");
+            txtTenPB.DataBindings.Clear();
+            txtTenPB.DataBindings.Add("Text", dgvPB.DataSource, "tenPB");
+            txtDD_PB.DataBindings.Clear();
+            txtDD_PB.DataBindings.Add("Text", dgvPB.DataSource, "diaDiem");
+            txtTP_PB.DataBindings.Clear();
+            txtTP_PB.DataBindings.Add("Text", dgvPB.DataSource, "maTruongPhong");
+        }
+        public void clearDataPB()
+        {
+            txtMaPB.Text = "";
+            txtTenPB.Text = "";
+            txtDD_PB.Text = "";
+            txtTP_PB.Text = "";
+        }
+
+        public void EnebalPB()
+        {
+            txtMaPB.Enabled = false;
+            txtTenPB.Enabled = false;
+            txtDD_PB.Enabled = false;
+            txtTP_PB.Enabled = false;
+        }
+
+        public void UnEnebalPB()
+        {
+            txtTenPB.Enabled = true;
+            txtDD_PB.Enabled = true;
+            txtTP_PB.Enabled = true;
+        }
+        private void btnThem_PB_Click(object sender, EventArgs e)
+        {
+            if (btnThem_PB.Text == "Thêm")
+            {
+                UnEnebalPB();
+                clearDataPB();
+                btnThem_PB.Text = "Lưu Thêm";
+                btnSua_PB.Text = "Cannel";
+                btnXoa_PB.Enabled = false;
+            }
+            else if (btnThem_PB.Text == "Lưu Thêm")
+            {
+                btnThem_PB.Text = "Thêm";
+                btnSua_PB.Text = "Sửa";
+                btnXoa_PB.Enabled = true;
+                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(txtTP_PB.Text))
+                {
+                    try
+                    {
+                        string tenpb = txtTenPB.Text.Trim();
+                        string diadiem = txtDD_PB.Text.Trim();
+                        int matp = Convert.ToInt32(txtTP_PB.Text.Trim());
+
+                        PhongBan pb = new PhongBan(tenpb, diadiem, matp);
+                        PhongBan_BUS.addPhongBan(pb);
+                        showPhongBan();
+                        buidingPhongBan();
+                        Enebal();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Loi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập dữ liệu");
+                }
+            }
+            else if (btnThem_PB.Text == "Lưu Sửa")
+            {
+                btnThem_PB.Text = "Thêm";
+                btnSua_PB.Text = "Sửa";
+                btnXoa_PB.Enabled = true;
+                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(txtTP_PB.Text))
+                {
+                    try
+                    {
+                        int mapb = Convert.ToInt32(txtMaPB.Text.Trim());
+                        string tenpb = txtTenPB.Text.Trim();
+                        string diadiem = txtDD_PB.Text.Trim();
+                        int matp = Convert.ToInt32(txtTP_PB.Text.Trim());
+
+                        PhongBan pb = new PhongBan(mapb,tenpb, diadiem, matp);
+                        PhongBan_BUS.suaPhongBan(pb);
+                        showPhongBan();
+                        buidingPhongBan();
+                        EnebalPB();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Loi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập dữ liệu");
+                }
+            }
+        }
+
+        private void btnSua_PB_Click(object sender, EventArgs e)
+        {
+            if (btnSua_PB.Text == "Sửa")
+            {
+                UnEnebalPB();
+                txtMaPB.Enabled = false;
+                btnThem_PB.Text = "Lưu Sửa";
+                btnSua_PB.Text = "Cannel";
+                btnXoa_PB.Enabled = false;
+
+            }
+            else
+            {
+                btnThem_PB.Text = "Thêm";
+                btnSua_PB.Text = "Sửa";
+                btnXoa_PB.Enabled = true;
+                Enebal();
+            }
+        }
+
+        private void btnXoa_PB_Click(object sender, EventArgs e)
+        {
+            if (!Catch.cNullTB(txtMaPB.Text))
+            {
+                int mapb = Convert.ToInt32(txtMaPB.Text);
+                PhongBan_BUS.xoaPhongBan(mapb);
+                showPhongBan();
+                buidingPhongBan();
+                Enebal();
+
+            }
+            else
+            {
+                MessageBox.Show("Chưa nhập dữ liệu");
+            }
+        }
+
+        public void showNV_PB(int mapb)
+        {
+            dgvNV_PB.DataSource = tblNhanVien_BUS.loadNVPB(mapb);
+        }
+        private void dgvPB_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int mapb = Convert.ToInt32(dgvPB.Rows[e.RowIndex].Cells[0].Value.ToString());
+            showNV_PB(mapb);
+        }
+
+        private void dgvNV_PB_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dgvPB_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int mapb = Convert.ToInt32(dgvPB.Rows[e.RowIndex].Cells[0].Value.ToString());
+            showNV_PB(mapb);
         }
     }
 }

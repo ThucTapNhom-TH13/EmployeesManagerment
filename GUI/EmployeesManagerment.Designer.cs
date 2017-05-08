@@ -57,24 +57,21 @@
             this.projectJoinedTable = new System.Windows.Forms.DataGridView();
             this.employeesTable = new System.Windows.Forms.DataGridView();
             this.departmentTab = new System.Windows.Forms.TabPage();
-            this.departmentButton2 = new System.Windows.Forms.Button();
-            this.departmentButton3 = new System.Windows.Forms.Button();
-            this.departmentButton1 = new System.Windows.Forms.Button();
+            this.btnSua_PB = new System.Windows.Forms.Button();
+            this.btnXoa_PB = new System.Windows.Forms.Button();
+            this.btnThem_PB = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.departmentIdTxt = new System.Windows.Forms.TextBox();
-            this.departmentNameTxt = new System.Windows.Forms.TextBox();
-            this.departmentLocationTxt = new System.Windows.Forms.TextBox();
-            this.departmentMemNumberTxt = new System.Windows.Forms.TextBox();
+            this.txtMaPB = new System.Windows.Forms.TextBox();
+            this.txtTenPB = new System.Windows.Forms.TextBox();
+            this.txtDD_PB = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.departmentManagerCombobox = new System.Windows.Forms.ComboBox();
+            this.txtTP_PB = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.departmentMemberTable = new System.Windows.Forms.DataGridView();
-            this.departmentTable = new System.Windows.Forms.DataGridView();
+            this.dgvPB = new System.Windows.Forms.DataGridView();
             this.projectTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -162,6 +159,11 @@
             this.allDayOffLeaveTable = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.emplDayOffStaticTable = new System.Windows.Forms.DataGridView();
+            this.MA_PB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TEN_PB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIA_DIEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MA_TP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNV_PB = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.emplTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -169,8 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeesTable)).BeginInit();
             this.departmentTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentMemberTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPB)).BeginInit();
             this.projectTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -190,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.allDayOffLeaveTable)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emplDayOffStaticTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV_PB)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -470,14 +472,14 @@
             // 
             // departmentTab
             // 
-            this.departmentTab.Controls.Add(this.departmentButton2);
-            this.departmentTab.Controls.Add(this.departmentButton3);
-            this.departmentTab.Controls.Add(this.departmentButton1);
+            this.departmentTab.Controls.Add(this.dgvNV_PB);
+            this.departmentTab.Controls.Add(this.btnSua_PB);
+            this.departmentTab.Controls.Add(this.btnXoa_PB);
+            this.departmentTab.Controls.Add(this.btnThem_PB);
             this.departmentTab.Controls.Add(this.groupBox2);
             this.departmentTab.Controls.Add(this.label13);
             this.departmentTab.Controls.Add(this.label12);
-            this.departmentTab.Controls.Add(this.departmentMemberTable);
-            this.departmentTab.Controls.Add(this.departmentTable);
+            this.departmentTab.Controls.Add(this.dgvPB);
             this.departmentTab.Location = new System.Drawing.Point(4, 22);
             this.departmentTab.Name = "departmentTab";
             this.departmentTab.Padding = new System.Windows.Forms.Padding(3);
@@ -486,45 +488,46 @@
             this.departmentTab.Text = "Phòng ban";
             this.departmentTab.UseVisualStyleBackColor = true;
             // 
-            // departmentButton2
+            // btnSua_PB
             // 
-            this.departmentButton2.Location = new System.Drawing.Point(143, 35);
-            this.departmentButton2.Name = "departmentButton2";
-            this.departmentButton2.Size = new System.Drawing.Size(80, 40);
-            this.departmentButton2.TabIndex = 16;
-            this.departmentButton2.Text = "Sửa";
-            this.departmentButton2.UseVisualStyleBackColor = true;
+            this.btnSua_PB.Location = new System.Drawing.Point(143, 35);
+            this.btnSua_PB.Name = "btnSua_PB";
+            this.btnSua_PB.Size = new System.Drawing.Size(80, 40);
+            this.btnSua_PB.TabIndex = 16;
+            this.btnSua_PB.Text = "Sửa";
+            this.btnSua_PB.UseVisualStyleBackColor = true;
+            this.btnSua_PB.Click += new System.EventHandler(this.btnSua_PB_Click);
             // 
-            // departmentButton3
+            // btnXoa_PB
             // 
-            this.departmentButton3.Location = new System.Drawing.Point(30, 97);
-            this.departmentButton3.Name = "departmentButton3";
-            this.departmentButton3.Size = new System.Drawing.Size(80, 40);
-            this.departmentButton3.TabIndex = 15;
-            this.departmentButton3.Text = "Xóa";
-            this.departmentButton3.UseVisualStyleBackColor = true;
+            this.btnXoa_PB.Location = new System.Drawing.Point(30, 97);
+            this.btnXoa_PB.Name = "btnXoa_PB";
+            this.btnXoa_PB.Size = new System.Drawing.Size(80, 40);
+            this.btnXoa_PB.TabIndex = 15;
+            this.btnXoa_PB.Text = "Xóa";
+            this.btnXoa_PB.UseVisualStyleBackColor = true;
+            this.btnXoa_PB.Click += new System.EventHandler(this.btnXoa_PB_Click);
             // 
-            // departmentButton1
+            // btnThem_PB
             // 
-            this.departmentButton1.Location = new System.Drawing.Point(30, 35);
-            this.departmentButton1.Name = "departmentButton1";
-            this.departmentButton1.Size = new System.Drawing.Size(80, 40);
-            this.departmentButton1.TabIndex = 14;
-            this.departmentButton1.Text = "Thêm";
-            this.departmentButton1.UseVisualStyleBackColor = true;
+            this.btnThem_PB.Location = new System.Drawing.Point(30, 35);
+            this.btnThem_PB.Name = "btnThem_PB";
+            this.btnThem_PB.Size = new System.Drawing.Size(80, 40);
+            this.btnThem_PB.TabIndex = 14;
+            this.btnThem_PB.Text = "Thêm";
+            this.btnThem_PB.UseVisualStyleBackColor = true;
+            this.btnThem_PB.Click += new System.EventHandler(this.btnThem_PB_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.departmentIdTxt);
-            this.groupBox2.Controls.Add(this.departmentNameTxt);
-            this.groupBox2.Controls.Add(this.departmentLocationTxt);
-            this.groupBox2.Controls.Add(this.departmentMemNumberTxt);
+            this.groupBox2.Controls.Add(this.txtMaPB);
+            this.groupBox2.Controls.Add(this.txtTenPB);
+            this.groupBox2.Controls.Add(this.txtDD_PB);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.departmentManagerCombobox);
+            this.groupBox2.Controls.Add(this.txtTP_PB);
             this.groupBox2.Location = new System.Drawing.Point(9, 178);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(248, 290);
@@ -532,51 +535,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin phòng ban";
             // 
-            // departmentIdTxt
+            // txtMaPB
             // 
-            this.departmentIdTxt.Location = new System.Drawing.Point(121, 85);
-            this.departmentIdTxt.Name = "departmentIdTxt";
-            this.departmentIdTxt.Size = new System.Drawing.Size(111, 20);
-            this.departmentIdTxt.TabIndex = 13;
+            this.txtMaPB.Location = new System.Drawing.Point(121, 85);
+            this.txtMaPB.Name = "txtMaPB";
+            this.txtMaPB.Size = new System.Drawing.Size(111, 20);
+            this.txtMaPB.TabIndex = 13;
             // 
-            // departmentNameTxt
+            // txtTenPB
             // 
-            this.departmentNameTxt.Location = new System.Drawing.Point(121, 111);
-            this.departmentNameTxt.Name = "departmentNameTxt";
-            this.departmentNameTxt.Size = new System.Drawing.Size(111, 20);
-            this.departmentNameTxt.TabIndex = 12;
+            this.txtTenPB.Location = new System.Drawing.Point(121, 111);
+            this.txtTenPB.Name = "txtTenPB";
+            this.txtTenPB.Size = new System.Drawing.Size(111, 20);
+            this.txtTenPB.TabIndex = 12;
             // 
-            // departmentLocationTxt
+            // txtDD_PB
             // 
-            this.departmentLocationTxt.Location = new System.Drawing.Point(121, 137);
-            this.departmentLocationTxt.Name = "departmentLocationTxt";
-            this.departmentLocationTxt.Size = new System.Drawing.Size(111, 20);
-            this.departmentLocationTxt.TabIndex = 11;
-            // 
-            // departmentMemNumberTxt
-            // 
-            this.departmentMemNumberTxt.Location = new System.Drawing.Point(121, 163);
-            this.departmentMemNumberTxt.Name = "departmentMemNumberTxt";
-            this.departmentMemNumberTxt.Size = new System.Drawing.Size(111, 20);
-            this.departmentMemNumberTxt.TabIndex = 10;
+            this.txtDD_PB.Location = new System.Drawing.Point(121, 137);
+            this.txtDD_PB.Name = "txtDD_PB";
+            this.txtDD_PB.Size = new System.Drawing.Size(111, 20);
+            this.txtDD_PB.TabIndex = 11;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(18, 192);
+            this.label18.Location = new System.Drawing.Point(18, 169);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(74, 13);
             this.label18.TabIndex = 9;
             this.label18.Text = "Trưởng phòng";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 166);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(99, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "Số lượng nhân viên";
             // 
             // label16
             // 
@@ -605,13 +592,25 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "Mã phòng ban";
             // 
-            // departmentManagerCombobox
+            // txtTP_PB
             // 
-            this.departmentManagerCombobox.FormattingEnabled = true;
-            this.departmentManagerCombobox.Location = new System.Drawing.Point(121, 189);
-            this.departmentManagerCombobox.Name = "departmentManagerCombobox";
-            this.departmentManagerCombobox.Size = new System.Drawing.Size(111, 21);
-            this.departmentManagerCombobox.TabIndex = 4;
+            this.txtTP_PB.FormattingEnabled = true;
+            this.txtTP_PB.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11"});
+            this.txtTP_PB.Location = new System.Drawing.Point(121, 166);
+            this.txtTP_PB.Name = "txtTP_PB";
+            this.txtTP_PB.Size = new System.Drawing.Size(111, 21);
+            this.txtTP_PB.TabIndex = 4;
             // 
             // label13
             // 
@@ -631,21 +630,22 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "Danh sách phòng ban";
             // 
-            // departmentMemberTable
+            // dgvPB
             // 
-            this.departmentMemberTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.departmentMemberTable.Location = new System.Drawing.Point(266, 292);
-            this.departmentMemberTable.Name = "departmentMemberTable";
-            this.departmentMemberTable.Size = new System.Drawing.Size(488, 176);
-            this.departmentMemberTable.TabIndex = 1;
-            // 
-            // departmentTable
-            // 
-            this.departmentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.departmentTable.Location = new System.Drawing.Point(266, 35);
-            this.departmentTable.Name = "departmentTable";
-            this.departmentTable.Size = new System.Drawing.Size(488, 230);
-            this.departmentTable.TabIndex = 0;
+            this.dgvPB.AllowUserToAddRows = false;
+            this.dgvPB.AllowUserToDeleteRows = false;
+            this.dgvPB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MA_PB,
+            this.TEN_PB,
+            this.DIA_DIEM,
+            this.MA_TP});
+            this.dgvPB.Location = new System.Drawing.Point(266, 35);
+            this.dgvPB.Name = "dgvPB";
+            this.dgvPB.ReadOnly = true;
+            this.dgvPB.Size = new System.Drawing.Size(488, 230);
+            this.dgvPB.TabIndex = 0;
+            this.dgvPB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPB_CellContentClick);
             // 
             // projectTab
             // 
@@ -1469,6 +1469,46 @@
             this.emplDayOffStaticTable.Size = new System.Drawing.Size(480, 424);
             this.emplDayOffStaticTable.TabIndex = 0;
             // 
+            // MA_PB
+            // 
+            this.MA_PB.DataPropertyName = "maPB";
+            this.MA_PB.HeaderText = "Mã Phòng Ban";
+            this.MA_PB.Name = "MA_PB";
+            this.MA_PB.ReadOnly = true;
+            // 
+            // TEN_PB
+            // 
+            this.TEN_PB.DataPropertyName = "tenPB";
+            this.TEN_PB.HeaderText = "Tên Phòng Ban";
+            this.TEN_PB.Name = "TEN_PB";
+            this.TEN_PB.ReadOnly = true;
+            // 
+            // DIA_DIEM
+            // 
+            this.DIA_DIEM.DataPropertyName = "diaDiem";
+            this.DIA_DIEM.HeaderText = "Địa Điểm";
+            this.DIA_DIEM.Name = "DIA_DIEM";
+            this.DIA_DIEM.ReadOnly = true;
+            // 
+            // MA_TP
+            // 
+            this.MA_TP.DataPropertyName = "maTruongPhong";
+            this.MA_TP.HeaderText = "Mã Trưởng Phòng";
+            this.MA_TP.Name = "MA_TP";
+            this.MA_TP.ReadOnly = true;
+            // 
+            // dgvNV_PB
+            // 
+            this.dgvNV_PB.AllowUserToAddRows = false;
+            this.dgvNV_PB.AllowUserToDeleteRows = false;
+            this.dgvNV_PB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNV_PB.Location = new System.Drawing.Point(266, 304);
+            this.dgvNV_PB.Name = "dgvNV_PB";
+            this.dgvNV_PB.ReadOnly = true;
+            this.dgvNV_PB.Size = new System.Drawing.Size(490, 164);
+            this.dgvNV_PB.TabIndex = 17;
+            this.dgvNV_PB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNV_PB_CellContentClick);
+            // 
             // EmployeesManagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1489,8 +1529,7 @@
             this.departmentTab.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentMemberTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPB)).EndInit();
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1515,6 +1554,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.allDayOffLeaveTable)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.emplDayOffStaticTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV_PB)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1554,23 +1594,20 @@
         private System.Windows.Forms.DataGridView employeesTable;
         private System.Windows.Forms.DateTimePicker emplDobTimepicker;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox departmentManagerCombobox;
+        private System.Windows.Forms.ComboBox txtTP_PB;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView departmentMemberTable;
-        private System.Windows.Forms.DataGridView departmentTable;
-        private System.Windows.Forms.TextBox departmentIdTxt;
-        private System.Windows.Forms.TextBox departmentNameTxt;
-        private System.Windows.Forms.TextBox departmentLocationTxt;
-        private System.Windows.Forms.TextBox departmentMemNumberTxt;
+        private System.Windows.Forms.DataGridView dgvPB;
+        private System.Windows.Forms.TextBox txtMaPB;
+        private System.Windows.Forms.TextBox txtTenPB;
+        private System.Windows.Forms.TextBox txtDD_PB;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button departmentButton2;
-        private System.Windows.Forms.Button departmentButton3;
-        private System.Windows.Forms.Button departmentButton1;
+        private System.Windows.Forms.Button btnSua_PB;
+        private System.Windows.Forms.Button btnXoa_PB;
+        private System.Windows.Forms.Button btnThem_PB;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtTenDuAn;
         private System.Windows.Forms.TextBox txtMaDuAn;
@@ -1655,6 +1692,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn soGioLam;
         private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MA_PB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TEN_PB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIA_DIEM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MA_TP;
+        private System.Windows.Forms.DataGridView dgvNV_PB;
     }
 }
 
