@@ -48,6 +48,7 @@
     <Compile Include="tblNghiLam_DAL.cs" />
     <Compile Include="tblNhanVien_DAL.cs" />
     <Compile Include="tblThamGia_DAL.cs" />
+    <Compile Include="ViPham_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj">

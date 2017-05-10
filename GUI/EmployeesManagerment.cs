@@ -30,6 +30,9 @@ namespace GUI
             EnebalPB();
             showPhongBan();
             buidingPhongBan();
+            enebalVP();
+            showVP();
+            buidingVP();
         }
 
         /// <summary>
@@ -819,20 +822,177 @@ namespace GUI
         {
             dgvNV_PB.DataSource = tblNhanVien_BUS.loadNVPB(mapb);
         }
-        private void dgvPB_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvPB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int mapb = Convert.ToInt32(dgvPB.Rows[e.RowIndex].Cells[0].Value.ToString());
             showNV_PB(mapb);
         }
-
         private void dgvNV_PB_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
 
         private void dgvPB_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int mapb = Convert.ToInt32(dgvPB.Rows[e.RowIndex].Cells[0].Value.ToString());
-            showNV_PB(mapb);
+           
+        }
+
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////////////
+        /// 
+        /// VI PHAM
+        /// /////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        public void showVP()
+        {
+            dgvViPham.DataSource = ViPham_BUS.loadViPham();
+        }
+
+        public void clearVP()
+        {
+            txtMaViPham.Text = "";
+            txtMaNV.Text = "";
+            txtLyDo.Text = "";
+            txtKyLuat.Text = "";
+           
+        }
+        public void enebalVP()
+        {
+            txtMaViPham.Enabled = false;
+            txtMaNV.Enabled = false;
+            txtLyDo.Enabled = false;
+            txtKyLuat.Enabled = false;
+            dtpNgayVP.Enabled = false;
+        }
+        public void unenebalVP()
+        {
+            dtpNgayVP.Enabled = true;
+            txtMaNV.Enabled = true;
+            txtLyDo.Enabled = true;
+            txtKyLuat.Enabled = true;
+           
+        }
+        public void buidingVP()
+        {
+            txtMaViPham.DataBindings.Clear();
+            txtMaViPham.DataBindings.Add("Text", dgvViPham.DataSource, "maViPham");
+            txtMaNV.DataBindings.Clear();
+            txtMaNV.DataBindings.Add("Text", dgvViPham.DataSource, "maNV");
+            txtLyDo.DataBindings.Clear();
+            txtLyDo.DataBindings.Add("Text", dgvViPham.DataSource, "lyDo");
+            txtKyLuat.DataBindings.Clear();
+            txtKyLuat.DataBindings.Add("Text", dgvViPham.DataSource, "hinhThucKyLuat");
+            dtpNgayVP.DataBindings.Clear();
+            dtpNgayVP.DataBindings.Add("Text", dgvViPham.DataSource, "ngayViPham");
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (btnThem.Text == "Thêm")
+            {
+                clearVP();
+                btnThem.Text = "Lưu Thêm";
+                btnSua.Text = "Cannel";
+                btnXoa.Enabled = false;
+                unenebalVP();
+            }
+            else if (btnThem.Text == "Lưu Thêm")
+            {
+                btnThem.Text = "Thêm";
+                btnSua.Text = "Sửa";
+                btnXoa.Enabled = true;
+                if (!Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(txtMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
+                {
+                    try
+                    {
+                        int manv = Convert.ToInt32(txtMaNV.Text.Trim());
+                        string lydo = txtLyDo.Text.Trim();
+                        string kyluat = txtKyLuat.Text.Trim();
+                        DateTime ngayvp = Convert.ToDateTime(dtpNgayVP.Text.Trim());
+
+                        ViPham vp = new ViPham(lydo, kyluat, ngayvp,manv);
+                        ViPham_BUS.addViPham(vp);
+                        showVP();
+                        buidingVP();
+                       
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Loi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập dữ liệu");
+                    enebalVP();
+                }
+            }
+            else if (btnThem.Text == "Lưu Sửa")
+            {
+                btnThem.Text = "Thêm";
+                btnSua.Text = "Sửa";
+                btnXoa.Enabled = true;
+                if (!Catch.cNullTB(txtMaViPham.Text) & !Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(txtMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
+                {
+                    try
+                    {
+                        int mavp = Convert.ToInt32(txtMaViPham.Text.Trim());
+                        int manv = Convert.ToInt32(txtMaNV.Text.Trim());
+                        string lydo = txtLyDo.Text.Trim();
+                        string kyluat = txtKyLuat.Text.Trim();
+                        DateTime ngayvp = Convert.ToDateTime(dtpNgayVP.Text.Trim());
+
+                        ViPham vp = new ViPham(mavp, lydo, kyluat, ngayvp, manv);
+                        ViPham_BUS.suaViPham(vp);
+                        showVP();
+                        buidingVP();
+                        
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Loi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chưa nhập dữ liệu");
+                }
+                enebalVP();
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (btnSua.Text == "Sửa")
+            {
+                unenebalVP();
+                txtMaViPham.Enabled = false;
+                btnThem.Text = "Lưu Sửa";
+                btnSua.Text = "Cannel";
+                btnXoa.Enabled = false;
+
+            }
+            else
+            {
+                btnThem.Text = "Thêm";
+                btnSua.Text = "Sửa";
+                btnXoa.Enabled = true;
+                enebalVP();
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (!Catch.cNullTB(txtMaViPham.Text))
+            {
+                int mavp = Convert.ToInt32(txtMaViPham.Text);
+                ViPham_BUS.xoaViPham(mavp);
+                showVP();
+                buidingVP();
+
+            }
+            else
+            {
+                MessageBox.Show("Chưa nhập dữ liệu");
+            }
         }
     }
 }

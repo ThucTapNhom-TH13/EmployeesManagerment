@@ -47,6 +47,7 @@
     <Compile Include="tblNghiLam.cs" />
     <Compile Include="tblNhanVien_BUS.cs" />
     <Compile Include="tblThamgia_BUS.cs" />
+    <Compile Include="ViPham_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

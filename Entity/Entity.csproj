@@ -46,6 +46,7 @@
     <Compile Include="tblDu_An.cs" />
     <Compile Include="tblThamgia.cs" />
     <Compile Include="NghiLam.cs" />
+    <Compile Include="ViPham.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
