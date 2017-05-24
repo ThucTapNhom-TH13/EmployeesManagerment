@@ -506,7 +506,7 @@ namespace GUI
         {
 
         }
-
+        //load nhanvien
         private void loadNhanVien()
         {
             DataView table = tblNhanVien_BUS.getAll();
