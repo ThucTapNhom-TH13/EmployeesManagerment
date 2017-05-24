@@ -9,7 +9,7 @@ using Entity;
 namespace DAL
 {
     public class SqlConnect
-    {
+    {// sql quan ly nhan vien
         public static SqlConnection Connect()
         {
             SqlConnection conn = new SqlConnection(@"Data Source=LINH\SQLEXPRESS;Initial Catalog=EmployeesManagerment;Integrated Security=True");
