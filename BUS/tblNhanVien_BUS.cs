@@ -17,6 +17,14 @@ namespace BUS
         {
             return tblNhanVien_DAL.getEmplNameById(manv);
         }
+        public static DataSet getNV()
+        {
+            return tblNhanVien_DAL.getNV();
+        }
+        public static DataSet getTP()
+        {
+            return tblNhanVien_DAL.getTP();
+        }
         public static DataTable loadNVPB(int mapb)
         {
             return tblNhanVien_DAL.getNhanVienPB(mapb);

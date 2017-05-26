@@ -27,7 +27,30 @@ namespace DAL
             conn.Close();
             return dt.Rows[0].Field<String>("TenNV");
         }
-
+        public static DataSet getNV()
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("SELECT tenNV,maNV FROM NhanVien", conn);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.SelectCommand = command;
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+        public static DataSet getTP()
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("SELECT nguoiGiamSat FROM NhanVien", conn);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.SelectCommand = command;
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
         public static DataView getAll()
         {
             SqlConnection connection = SqlConnect.Connect();

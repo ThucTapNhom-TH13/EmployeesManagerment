@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.emplTab = new System.Windows.Forms.TabPage();
             this.emplButton2 = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtTP_PB = new System.Windows.Forms.ComboBox();
+            this.cmbTP = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPB = new System.Windows.Forms.DataGridView();
@@ -79,6 +80,8 @@
             this.MA_TP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbDA = new System.Windows.Forms.ComboBox();
+            this.cmbNV = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.btnXoa_NVDA = new System.Windows.Forms.Button();
             this.btnSua_NVDA = new System.Windows.Forms.Button();
@@ -88,8 +91,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.txtSogio_TGIA = new System.Windows.Forms.TextBox();
             this.txtNV_TGIA = new System.Windows.Forms.TextBox();
-            this.txtMaDA_TGIA = new System.Windows.Forms.TextBox();
-            this.txtMANV_TGIA = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpNgayKT = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayBD = new System.Windows.Forms.DateTimePicker();
@@ -97,7 +98,7 @@
             this.btnXoa_Duan = new System.Windows.Forms.Button();
             this.btnThem_Duan = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtMaPB_DA = new System.Windows.Forms.ComboBox();
+            this.cmbPB = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -133,7 +134,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.txtLyDo = new System.Windows.Forms.TextBox();
             this.txtKyLuat = new System.Windows.Forms.TextBox();
-            this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtMaViPham = new System.Windows.Forms.TextBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -167,6 +167,11 @@
             this.allDayOffLeaveTable = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.emplDayOffStaticTable = new System.Windows.Forms.DataGridView();
+            this.errorPB = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorDA = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorThamgia = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorVP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbMaNV = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.emplTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -195,6 +200,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.allDayOffLeaveTable)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emplDayOffStaticTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorThamgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorVP)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -542,7 +551,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.txtTP_PB);
+            this.groupBox2.Controls.Add(this.cmbTP);
             this.groupBox2.Location = new System.Drawing.Point(9, 178);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(248, 290);
@@ -607,10 +616,10 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "Mã phòng ban";
             // 
-            // txtTP_PB
+            // cmbTP
             // 
-            this.txtTP_PB.FormattingEnabled = true;
-            this.txtTP_PB.Items.AddRange(new object[] {
+            this.cmbTP.FormattingEnabled = true;
+            this.cmbTP.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -622,10 +631,10 @@
             "9",
             "10",
             "11"});
-            this.txtTP_PB.Location = new System.Drawing.Point(121, 166);
-            this.txtTP_PB.Name = "txtTP_PB";
-            this.txtTP_PB.Size = new System.Drawing.Size(111, 21);
-            this.txtTP_PB.TabIndex = 4;
+            this.cmbTP.Location = new System.Drawing.Point(121, 166);
+            this.cmbTP.Name = "cmbTP";
+            this.cmbTP.Size = new System.Drawing.Size(111, 21);
+            this.cmbTP.TabIndex = 4;
             // 
             // label13
             // 
@@ -708,6 +717,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cmbDA);
+            this.groupBox4.Controls.Add(this.cmbNV);
             this.groupBox4.Controls.Add(this.label28);
             this.groupBox4.Controls.Add(this.btnXoa_NVDA);
             this.groupBox4.Controls.Add(this.btnSua_NVDA);
@@ -717,14 +728,48 @@
             this.groupBox4.Controls.Add(this.label27);
             this.groupBox4.Controls.Add(this.txtSogio_TGIA);
             this.groupBox4.Controls.Add(this.txtNV_TGIA);
-            this.groupBox4.Controls.Add(this.txtMaDA_TGIA);
-            this.groupBox4.Controls.Add(this.txtMANV_TGIA);
             this.groupBox4.Location = new System.Drawing.Point(9, 274);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(270, 194);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin nhân viên tham gia dự án";
+            // 
+            // cmbDA
+            // 
+            this.cmbDA.FormattingEnabled = true;
+            this.cmbDA.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.cmbDA.Location = new System.Drawing.Point(128, 61);
+            this.cmbDA.Name = "cmbDA";
+            this.cmbDA.Size = new System.Drawing.Size(125, 21);
+            this.cmbDA.TabIndex = 18;
+            // 
+            // cmbNV
+            // 
+            this.cmbNV.FormattingEnabled = true;
+            this.cmbNV.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.cmbNV.Location = new System.Drawing.Point(128, 29);
+            this.cmbNV.Name = "cmbNV";
+            this.cmbNV.Size = new System.Drawing.Size(125, 21);
+            this.cmbNV.TabIndex = 17;
             // 
             // label28
             // 
@@ -806,20 +851,6 @@
             this.txtNV_TGIA.Size = new System.Drawing.Size(125, 20);
             this.txtNV_TGIA.TabIndex = 2;
             // 
-            // txtMaDA_TGIA
-            // 
-            this.txtMaDA_TGIA.Location = new System.Drawing.Point(128, 61);
-            this.txtMaDA_TGIA.Name = "txtMaDA_TGIA";
-            this.txtMaDA_TGIA.Size = new System.Drawing.Size(125, 20);
-            this.txtMaDA_TGIA.TabIndex = 1;
-            // 
-            // txtMANV_TGIA
-            // 
-            this.txtMANV_TGIA.Location = new System.Drawing.Point(128, 34);
-            this.txtMANV_TGIA.Name = "txtMANV_TGIA";
-            this.txtMANV_TGIA.Size = new System.Drawing.Size(125, 20);
-            this.txtMANV_TGIA.TabIndex = 0;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtpNgayKT);
@@ -828,7 +859,7 @@
             this.groupBox3.Controls.Add(this.btnXoa_Duan);
             this.groupBox3.Controls.Add(this.btnThem_Duan);
             this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.txtMaPB_DA);
+            this.groupBox3.Controls.Add(this.cmbPB);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label23);
@@ -898,10 +929,10 @@
             this.label26.TabIndex = 11;
             this.label26.Text = "Phòng ban";
             // 
-            // txtMaPB_DA
+            // cmbPB
             // 
-            this.txtMaPB_DA.FormattingEnabled = true;
-            this.txtMaPB_DA.Items.AddRange(new object[] {
+            this.cmbPB.FormattingEnabled = true;
+            this.cmbPB.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -911,10 +942,10 @@
             "7",
             "8",
             "9"});
-            this.txtMaPB_DA.Location = new System.Drawing.Point(128, 160);
-            this.txtMaPB_DA.Name = "txtMaPB_DA";
-            this.txtMaPB_DA.Size = new System.Drawing.Size(125, 21);
-            this.txtMaPB_DA.TabIndex = 10;
+            this.cmbPB.Location = new System.Drawing.Point(128, 160);
+            this.cmbPB.Name = "cmbPB";
+            this.cmbPB.Size = new System.Drawing.Size(125, 21);
+            this.cmbPB.TabIndex = 10;
             // 
             // label25
             // 
@@ -1152,6 +1183,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.cmbMaNV);
             this.groupBox5.Controls.Add(this.dtpNgayVP);
             this.groupBox5.Controls.Add(this.label36);
             this.groupBox5.Controls.Add(this.label35);
@@ -1160,7 +1192,6 @@
             this.groupBox5.Controls.Add(this.label31);
             this.groupBox5.Controls.Add(this.txtLyDo);
             this.groupBox5.Controls.Add(this.txtKyLuat);
-            this.groupBox5.Controls.Add(this.txtMaNV);
             this.groupBox5.Controls.Add(this.txtMaViPham);
             this.groupBox5.Location = new System.Drawing.Point(9, 52);
             this.groupBox5.Name = "groupBox5";
@@ -1234,13 +1265,6 @@
             this.txtKyLuat.Name = "txtKyLuat";
             this.txtKyLuat.Size = new System.Drawing.Size(118, 20);
             this.txtKyLuat.TabIndex = 3;
-            // 
-            // txtMaNV
-            // 
-            this.txtMaNV.Location = new System.Drawing.Point(110, 72);
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(118, 20);
-            this.txtMaNV.TabIndex = 1;
             // 
             // txtMaViPham
             // 
@@ -1552,6 +1576,30 @@
             this.emplDayOffStaticTable.Size = new System.Drawing.Size(480, 424);
             this.emplDayOffStaticTable.TabIndex = 0;
             // 
+            // errorPB
+            // 
+            this.errorPB.ContainerControl = this;
+            // 
+            // errorDA
+            // 
+            this.errorDA.ContainerControl = this;
+            // 
+            // errorThamgia
+            // 
+            this.errorThamgia.ContainerControl = this;
+            // 
+            // errorVP
+            // 
+            this.errorVP.ContainerControl = this;
+            // 
+            // cmbMaNV
+            // 
+            this.cmbMaNV.FormattingEnabled = true;
+            this.cmbMaNV.Location = new System.Drawing.Point(110, 72);
+            this.cmbMaNV.Name = "cmbMaNV";
+            this.cmbMaNV.Size = new System.Drawing.Size(121, 21);
+            this.cmbMaNV.TabIndex = 13;
+            // 
             // EmployeesManagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1598,6 +1646,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.allDayOffLeaveTable)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.emplDayOffStaticTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorThamgia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorVP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1637,7 +1689,7 @@
         private System.Windows.Forms.DataGridView employeesTable;
         private System.Windows.Forms.DateTimePicker emplDobTimepicker;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox txtTP_PB;
+        private System.Windows.Forms.ComboBox cmbTP;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvPB;
@@ -1667,13 +1719,11 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtSogio_TGIA;
         private System.Windows.Forms.TextBox txtNV_TGIA;
-        private System.Windows.Forms.TextBox txtMaDA_TGIA;
-        private System.Windows.Forms.TextBox txtMANV_TGIA;
         private System.Windows.Forms.Button btnSua_Duan;
         private System.Windows.Forms.Button btnXoa_Duan;
         private System.Windows.Forms.Button btnThem_Duan;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox txtMaPB_DA;
+        private System.Windows.Forms.ComboBox cmbPB;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
@@ -1692,8 +1742,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtLyDo;
         private System.Windows.Forms.TextBox txtKyLuat;
-        private System.Windows.Forms.TextBox txtMaNV;
-        private System.Windows.Forms.TextBox txtMaViPham;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvViPham;
@@ -1743,6 +1791,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LY_DO;
         private System.Windows.Forms.DataGridViewTextBoxColumn KY_LUAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAY_VP;
+        private System.Windows.Forms.ErrorProvider errorPB;
+        private System.Windows.Forms.ErrorProvider errorDA;
+        private System.Windows.Forms.ErrorProvider errorThamgia;
+        private System.Windows.Forms.ComboBox cmbDA;
+        private System.Windows.Forms.ComboBox cmbNV;
+        private System.Windows.Forms.ErrorProvider errorVP;
+        private System.Windows.Forms.TextBox txtMaViPham;
+        private System.Windows.Forms.ComboBox cmbMaNV;
     }
 }
 

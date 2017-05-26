@@ -14,6 +14,10 @@ namespace BUS
         {
             return tblDuAn_DAL.getDuAn();
         }
+        public static DataSet getDA()
+        {
+            return tblDuAn_DAL.getDA();
+        }
         public static void addDu_An(tblDu_An Duan)
         {
             tblDuAn_DAL.ThemDuAn(Duan);

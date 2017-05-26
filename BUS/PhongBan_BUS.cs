@@ -15,6 +15,10 @@ namespace BUS
         {
             return PhongBan_DAL.getPhongBan();
         }
+        public static DataSet getPB()
+        {
+            return PhongBan_DAL.getPB();
+        }
         public static void addPhongBan(PhongBan pb)
         {
             PhongBan_DAL.ThemPhongBan(pb);

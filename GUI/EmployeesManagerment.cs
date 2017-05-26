@@ -46,7 +46,7 @@ namespace GUI
         public void clearData()
         {
             txtMaDuAn.Text = "";
-            txtMaPB_DA.Text = "";
+            cmbPB.Text = "";
             txtTenDuAn.Text = "";
             txtDiaDiem.Text = "";
         }
@@ -55,7 +55,7 @@ namespace GUI
         {
             txtMaDuAn.Enabled = false;
             txtTenDuAn.Enabled = false;
-            txtMaPB_DA.Enabled = false;
+            cmbPB.Enabled = false;
             txtDiaDiem.Enabled = false;
             dtpNgayKT.Enabled = false;
             dtpNgayBD.Enabled = false;
@@ -64,7 +64,7 @@ namespace GUI
         public void UnEnebal()
         {
             txtTenDuAn.Enabled = true;
-            txtMaPB_DA.Enabled = true;
+            cmbPB.Enabled = true;
             txtDiaDiem.Enabled = true;
             dtpNgayKT.Enabled = true;
             dtpNgayBD.Enabled = true;
@@ -83,8 +83,8 @@ namespace GUI
             dtpNgayBD.DataBindings.Add("Text", dgvDuAn.DataSource, "ngayBatDau");
             dtpNgayKT.DataBindings.Clear();
             dtpNgayKT.DataBindings.Add("Text", dgvDuAn.DataSource, "ngayKetThuc");
-            txtMaPB_DA.DataBindings.Clear();
-            txtMaPB_DA.DataBindings.Add("Text", dgvDuAn.DataSource, "maPB");
+            cmbPB.DataBindings.Clear();
+            cmbPB.DataBindings.Add("Text", dgvDuAn.DataSource, "maPB");
         }
 
 
@@ -101,6 +101,11 @@ namespace GUI
         {
             if (btnThem_Duan.Text == "Thêm")
             {
+                errorDA.Clear();
+                cmbPB.DataBindings.Clear();
+                cmbPB.DataSource = PhongBan_BUS.getPB().Tables[0];
+                cmbPB.DisplayMember = "maPB";
+                cmbPB.DisplayMember = "maPB";
                 UnEnebal();
                 clearData();
                 btnThem_Duan.Text = "Lưu Thêm";
@@ -112,7 +117,7 @@ namespace GUI
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
                 btnXoa_Duan.Enabled = true;
-                if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(txtMaPB_DA.Text))
+                if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(cmbPB.Text))
                 {
                     try
                     {
@@ -120,7 +125,7 @@ namespace GUI
                         string diadiem = txtDiaDiem.Text.Trim();
                         DateTime ngaybd = Convert.ToDateTime(dtpNgayBD.Text.Trim());
                         DateTime ngaykt = Convert.ToDateTime(dtpNgayKT.Text.Trim());
-                        int mapb = Convert.ToInt32(txtMaPB_DA.Text.Trim());
+                        int mapb = Convert.ToInt32(cmbPB.Text.Trim());
 
                         tblDu_An duan = new tblDu_An(tenda, diadiem, ngaybd, ngaykt, mapb);
                         tblDuAn_BUS.addDu_An(duan);
@@ -130,12 +135,32 @@ namespace GUI
                     }
                     catch
                     {
+                        int n = 0;
+                        if (int.TryParse(cmbPB.Text.Trim(), out n) == false)
+                        {
+                            errorDA.SetError(cmbPB, "không được nhập chữ");
+                        }
                         MessageBox.Show("Loi");
+                        Enebal();
                     }
                 }
                 else
                 {
+                     
+                    if (txtTenDuAn.Text.Trim().Length == 0)
+                    {
+                        errorDA.SetError(txtTenDuAn, "không được bỏ trống");
+                    }
+                    if (txtDiaDiem.Text.Trim().Length == 0)
+                    {
+                        errorDA.SetError(txtDiaDiem, "không được bỏ trống");
+                    }
+                    if (cmbPB.Text.Trim().Length == 0)
+                    {
+                        errorDA.SetError(cmbPB, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
+                    Enebal();
                 }
             }
             else if (btnThem_Duan.Text == "Lưu Sửa")
@@ -143,7 +168,7 @@ namespace GUI
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
                 btnXoa_Duan.Enabled = true;
-                if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(txtMaPB_DA.Text))
+                if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(cmbPB.Text))
                 {
                     try
                     {
@@ -152,7 +177,7 @@ namespace GUI
                         string diadiem = txtDiaDiem.Text.Trim();
                         DateTime ngaybd = Convert.ToDateTime(dtpNgayBD.Text.Trim());
                         DateTime ngaykt = Convert.ToDateTime(dtpNgayKT.Text.Trim());
-                        int mapb = Convert.ToInt32(txtMaPB_DA.Text.Trim());
+                        int mapb = Convert.ToInt32(cmbPB.Text.Trim());
 
                         tblDu_An duan = new tblDu_An(mada, tenda, diadiem, ngaybd, ngaykt, mapb);
                         tblDuAn_BUS.suaDu_An(duan);
@@ -162,11 +187,20 @@ namespace GUI
                     }
                     catch
                     {
+                       
                         MessageBox.Show("Loi");
                     }
                 }
                 else
                 {
+                    if (txtTenDuAn.Text.Trim().Length == 0)
+                    {
+                        errorDA.SetError(txtTenDuAn, "không được bỏ trống");
+                    }
+                    if (txtDiaDiem.Text.Trim().Length == 0)
+                    {
+                        errorDA.SetError(txtDiaDiem, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
             }
@@ -178,7 +212,7 @@ namespace GUI
             if (btnSua_Duan.Text == "Sửa")
             {
                 UnEnebal();
-                txtMaPB_DA.Enabled = false;
+                cmbPB.Enabled = false;
                 btnThem_Duan.Text = "Lưu Sửa";
                 btnSua_Duan.Text = "Cannel";
                 btnXoa_Duan.Enabled = false;
@@ -228,34 +262,33 @@ namespace GUI
         }
         public void clearDtaThamgia()
         {
-            txtMANV_TGIA.Text = "";
-            txtMaDA_TGIA.Text = "";
+            cmbNV.Text = "";
+            cmbDA.Text = "";
             txtSogio_TGIA.Text = "";
             txtNV_TGIA.Text = "";
         }
         public void enebalTHAM_GIA()
         {
-            txtMaDA_TGIA.Enabled = false;
-            txtMANV_TGIA.Enabled = false;
+            cmbDA.Enabled = false;
+            cmbNV.Enabled = false;
             txtSogio_TGIA.Enabled = false;
             txtNV_TGIA.Enabled = false;
         }
         public void unenebalTHAM_GIA()
         {
-            txtMaDA_TGIA.Enabled = true;
-            txtMANV_TGIA.Enabled = true;
+            cmbDA.Enabled = true;
+            cmbNV.Enabled = true;
             txtSogio_TGIA.Enabled = true;
             txtNV_TGIA.Enabled = true;
         }
         public void buidingTham_gia()
         {
-            txtMANV_TGIA.DataBindings.Clear();
-            txtMANV_TGIA.DataBindings.Add("Text", dgvNV_DA.DataSource, "maNV");
-            txtMaDA_TGIA.DataBindings.Clear();
-            txtMaDA_TGIA.DataBindings.Add("Text", dgvNV_DA.DataSource, "maDA");
+            cmbNV.DataBindings.Clear();
+            cmbNV.DataBindings.Add("Text", dgvNV_DA.DataSource, "maNV");
+            cmbDA.DataBindings.Clear();
+            cmbDA.DataBindings.Add("Text", dgvNV_DA.DataSource, "maDA");
             txtNV_TGIA.DataBindings.Clear();
             txtNV_TGIA.DataBindings.Add("Text", dgvNV_DA.DataSource, "nhiemVu");
-            txtMaDA_TGIA.DataBindings.Clear();
             txtSogio_TGIA.DataBindings.Clear();
             txtSogio_TGIA.DataBindings.Add("Text", dgvNV_DA.DataSource, "soGioLam");
         }
@@ -263,7 +296,16 @@ namespace GUI
         {
             if (btnThem_NVDA.Text == "Thêm")
             {
+                errorThamgia.Clear();
                 clearDtaThamgia();
+                cmbDA.DataBindings.Clear();
+                cmbNV.DataBindings.Clear();
+                cmbDA.DataSource = tblDuAn_BUS.getDA().Tables[0];
+                cmbDA.DisplayMember = "maDA";
+                cmbDA.DisplayMember = "maDA";
+                cmbNV.DataSource = tblNhanVien_BUS.getNV().Tables[0];
+                cmbNV.DisplayMember = "maNV";
+                cmbNV.DisplayMember = "maNV";
                 btnThem_NVDA.Text = "Lưu Thêm";
                 btnSua_NVDA.Text = "Cannel";
                 btnXoa_NVDA.Enabled = false;
@@ -274,13 +316,13 @@ namespace GUI
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
                 btnXoa_NVDA.Enabled = true;
-                if (!Catch.cNullTB(txtMANV_TGIA.Text) & !Catch.cNullTB(txtMaDA_TGIA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
+                if (!Catch.cNullTB(cmbNV.Text) & !Catch.cNullTB(cmbDA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
                 {
                     try
                     {
-                        int mada = Convert.ToInt32(txtMaDA_TGIA.Text.Trim());
-                        int manv = Convert.ToInt32(txtMANV_TGIA.Text.Trim());
-                        string nhiemvu = txtTenDuAn.Text.Trim();
+                        int mada = Convert.ToInt32(cmbDA.Text.Trim());
+                        int manv = Convert.ToInt32(cmbNV.Text.Trim());
+                        string nhiemvu = txtNV_TGIA.Text.Trim();
                         float sogiolam = (float)Convert.ToDouble(txtSogio_TGIA.Text.Trim());
 
                         tblThamgia tgia = new tblThamgia(manv, mada, sogiolam, nhiemvu);
@@ -291,12 +333,27 @@ namespace GUI
                     }
                     catch
                     {
+                        int n = 0;
+                        if (int.TryParse(txtSogio_TGIA.Text.Trim(), out n) == false)
+                        {
+                            errorThamgia.SetError(txtSogio_TGIA, "không được nhập chữ");
+                        }
                         MessageBox.Show("Loi");
+                        enebalTHAM_GIA();
                     }
                 }
                 else
                 {
+                    if (txtNV_TGIA.Text.Trim().Length == 0)
+                    {
+                        errorThamgia.SetError(txtNV_TGIA, "không được bỏ trống");
+                    }
+                    if (txtSogio_TGIA.Text.Trim().Length == 0)
+                    {
+                        errorThamgia.SetError(txtSogio_TGIA, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
+                    enebalTHAM_GIA();
                 }
             }
             else if (btnThem_NVDA.Text == "Lưu Sửa")
@@ -304,12 +361,12 @@ namespace GUI
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
                 btnXoa_NVDA.Enabled = true;
-                if (!Catch.cNullTB(txtMANV_TGIA.Text) & !Catch.cNullTB(txtMaDA_TGIA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
+                if (!Catch.cNullTB(cmbNV.Text) & !Catch.cNullTB(cmbDA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
                 {
                     try
                     {
-                        int mada = Convert.ToInt32(txtMaDA_TGIA.Text);
-                        int manv = Convert.ToInt32(txtMANV_TGIA.Text);
+                        int mada = Convert.ToInt32(cmbDA.Text);
+                        int manv = Convert.ToInt32(cmbNV.Text);
                         string nhiemvu = txtNV_TGIA.Text.Trim();
                         float sogiolam = (float)Convert.ToDouble(txtSogio_TGIA.Text.Trim());
 
@@ -321,11 +378,24 @@ namespace GUI
                     }
                     catch
                     {
+                        int n = 0;
+                        if (int.TryParse(txtSogio_TGIA.Text.Trim(), out n) == false)
+                        {
+                            errorThamgia.SetError(txtSogio_TGIA, "không được nhập chữ");
+                        }
                         MessageBox.Show("Loi");
                     }
                 }
                 else
                 {
+                    if (txtNV_TGIA.Text.Trim().Length == 0)
+                    {
+                        errorThamgia.SetError(txtNV_TGIA, "không được bỏ trống");
+                    }
+                    if (txtSogio_TGIA.Text.Trim().Length == 0)
+                    {
+                        errorThamgia.SetError(txtSogio_TGIA, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
             }
@@ -336,8 +406,8 @@ namespace GUI
             if (btnSua_NVDA.Text == "Sửa")
             {
                 unenebalTHAM_GIA();
-                txtMaDA_TGIA.Enabled = false;
-                txtMANV_TGIA.Enabled = false;
+                cmbDA.Enabled = false;
+                cmbNV.Enabled = false;
                 btnThem_NVDA.Text = "Lưu Sửa";
                 btnSua_NVDA.Text = "Cannel";
                 btnXoa_NVDA.Enabled = false;
@@ -354,10 +424,10 @@ namespace GUI
 
         private void btnXoa_NVDA_Click(object sender, EventArgs e)
         {
-            if (!Catch.cNullTB(txtMaDA_TGIA.Text) & !Catch.cNullTB(txtMANV_TGIA.Text))
+            if (!Catch.cNullTB(cmbDA.Text) & !Catch.cNullTB(cmbNV.Text))
             {
-                int maduan = Convert.ToInt32(txtMaDA_TGIA.Text);
-                int manv = Convert.ToInt32(txtMANV_TGIA.Text);
+                int maduan = Convert.ToInt32(cmbDA.Text);
+                int manv = Convert.ToInt32(cmbNV.Text);
                 tblThamgia_BUS.deleteThamGia(maduan, manv);
                 showThamgia(maduan);
                 buidingDu_An();
@@ -685,15 +755,15 @@ namespace GUI
             txtTenPB.DataBindings.Add("Text", dgvPB.DataSource, "tenPB");
             txtDD_PB.DataBindings.Clear();
             txtDD_PB.DataBindings.Add("Text", dgvPB.DataSource, "diaDiem");
-            txtTP_PB.DataBindings.Clear();
-            txtTP_PB.DataBindings.Add("Text", dgvPB.DataSource, "maTruongPhong");
+            cmbTP.DataBindings.Clear();
+            cmbTP.DataBindings.Add("Text", dgvPB.DataSource, "maTruongPhong");
         }
         public void clearDataPB()
         {
             txtMaPB.Text = "";
             txtTenPB.Text = "";
             txtDD_PB.Text = "";
-            txtTP_PB.Text = "";
+            cmbTP.Text = "";
         }
 
         public void EnebalPB()
@@ -701,21 +771,25 @@ namespace GUI
             txtMaPB.Enabled = false;
             txtTenPB.Enabled = false;
             txtDD_PB.Enabled = false;
-            txtTP_PB.Enabled = false;
+            cmbTP.Enabled = false;
         }
 
         public void UnEnebalPB()
         {
             txtTenPB.Enabled = true;
             txtDD_PB.Enabled = true;
-            txtTP_PB.Enabled = true;
+            cmbTP.Enabled = true;
         }
         private void btnThem_PB_Click(object sender, EventArgs e)
         {
             if (btnThem_PB.Text == "Thêm")
             {
+                errorPB.Clear();
                 UnEnebalPB();
                 clearDataPB();
+                cmbTP.DataSource = tblNhanVien_BUS.getTP().Tables[0];
+                cmbTP.DisplayMember = "nguoiGiamSat";
+                cmbTP.DisplayMember = "nguoiGiamSat";
                 btnThem_PB.Text = "Lưu Thêm";
                 btnSua_PB.Text = "Cannel";
                 btnXoa_PB.Enabled = false;
@@ -725,19 +799,19 @@ namespace GUI
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
                 btnXoa_PB.Enabled = true;
-                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(txtTP_PB.Text))
+                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(cmbTP.Text))
                 {
                     try
                     {
                         string tenpb = txtTenPB.Text.Trim();
                         string diadiem = txtDD_PB.Text.Trim();
-                        int matp = Convert.ToInt32(txtTP_PB.Text.Trim());
+                        int matp = Convert.ToInt32(cmbTP.Text.Trim());
 
                         PhongBan pb = new PhongBan(tenpb, diadiem, matp);
                         PhongBan_BUS.addPhongBan(pb);
                         showPhongBan();
                         buidingPhongBan();
-                        Enebal();
+                        EnebalPB();
                     }
                     catch
                     {
@@ -746,22 +820,31 @@ namespace GUI
                 }
                 else
                 {
+                    if (txtTenPB.Text.Trim().Length == 0)
+                    {
+                        errorPB.SetError(txtTenPB, "không được bỏ trống");
+                    }
+                    if (txtDD_PB.Text.Trim().Length == 0)
+                    {
+                        errorPB.SetError(txtDD_PB, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
+                EnebalPB();
             }
             else if (btnThem_PB.Text == "Lưu Sửa")
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
                 btnXoa_PB.Enabled = true;
-                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(txtTP_PB.Text))
+                if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(cmbTP.Text))
                 {
                     try
                     {
                         int mapb = Convert.ToInt32(txtMaPB.Text.Trim());
                         string tenpb = txtTenPB.Text.Trim();
                         string diadiem = txtDD_PB.Text.Trim();
-                        int matp = Convert.ToInt32(txtTP_PB.Text.Trim());
+                        int matp = Convert.ToInt32(cmbTP.Text.Trim());
 
                         PhongBan pb = new PhongBan(mapb,tenpb, diadiem, matp);
                         PhongBan_BUS.suaPhongBan(pb);
@@ -776,8 +859,17 @@ namespace GUI
                 }
                 else
                 {
+                    if (txtTenPB.Text.Trim().Length == 0)
+                    {
+                        errorPB.SetError(txtTenPB, "không được bỏ trống");
+                    }
+                    if (txtDD_PB.Text.Trim().Length == 0)
+                    {
+                        errorPB.SetError(txtDD_PB, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
+                EnebalPB();
             }
         }
 
@@ -850,7 +942,7 @@ namespace GUI
         public void clearVP()
         {
             txtMaViPham.Text = "";
-            txtMaNV.Text = "";
+            cmbMaNV.Text = "";
             txtLyDo.Text = "";
             txtKyLuat.Text = "";
            
@@ -858,7 +950,7 @@ namespace GUI
         public void enebalVP()
         {
             txtMaViPham.Enabled = false;
-            txtMaNV.Enabled = false;
+            cmbMaNV.Enabled = false;
             txtLyDo.Enabled = false;
             txtKyLuat.Enabled = false;
             dtpNgayVP.Enabled = false;
@@ -866,7 +958,7 @@ namespace GUI
         public void unenebalVP()
         {
             dtpNgayVP.Enabled = true;
-            txtMaNV.Enabled = true;
+            cmbMaNV.Enabled = true;
             txtLyDo.Enabled = true;
             txtKyLuat.Enabled = true;
            
@@ -875,8 +967,8 @@ namespace GUI
         {
             txtMaViPham.DataBindings.Clear();
             txtMaViPham.DataBindings.Add("Text", dgvViPham.DataSource, "maViPham");
-            txtMaNV.DataBindings.Clear();
-            txtMaNV.DataBindings.Add("Text", dgvViPham.DataSource, "maNV");
+            cmbMaNV.DataBindings.Clear();
+            cmbMaNV.DataBindings.Add("Text", dgvViPham.DataSource, "maNV");
             txtLyDo.DataBindings.Clear();
             txtLyDo.DataBindings.Add("Text", dgvViPham.DataSource, "lyDo");
             txtKyLuat.DataBindings.Clear();
@@ -888,7 +980,11 @@ namespace GUI
         {
             if (btnThem.Text == "Thêm")
             {
+                errorVP.Clear();
                 clearVP();
+                cmbMaNV.DataSource = tblNhanVien_BUS.getNV().Tables[0];
+                cmbMaNV.DisplayMember = "maNV";
+                cmbMaNV.DisplayMember = "maNV";
                 btnThem.Text = "Lưu Thêm";
                 btnSua.Text = "Cannel";
                 btnXoa.Enabled = false;
@@ -899,11 +995,11 @@ namespace GUI
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
                 btnXoa.Enabled = true;
-                if (!Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(txtMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
+                if (!Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(cmbMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
                 {
                     try
                     {
-                        int manv = Convert.ToInt32(txtMaNV.Text.Trim());
+                        int manv = Convert.ToInt32(cmbMaNV.Text.Trim());
                         string lydo = txtLyDo.Text.Trim();
                         string kyluat = txtKyLuat.Text.Trim();
                         DateTime ngayvp = Convert.ToDateTime(dtpNgayVP.Text.Trim());
@@ -921,21 +1017,30 @@ namespace GUI
                 }
                 else
                 {
+                    if (txtLyDo.Text.Trim().Length == 0)
+                    {
+                        errorVP.SetError(txtLyDo, "không được bỏ trống");
+                    }
+                    if (txtKyLuat.Text.Trim().Length == 0)
+                    {
+                        errorVP.SetError(txtKyLuat, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
-                    enebalVP();
+                    
                 }
+                enebalVP();
             }
             else if (btnThem.Text == "Lưu Sửa")
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
                 btnXoa.Enabled = true;
-                if (!Catch.cNullTB(txtMaViPham.Text) & !Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(txtMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
+                if (!Catch.cNullTB(txtMaViPham.Text) & !Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(cmbMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
                 {
                     try
                     {
                         int mavp = Convert.ToInt32(txtMaViPham.Text.Trim());
-                        int manv = Convert.ToInt32(txtMaNV.Text.Trim());
+                        int manv = Convert.ToInt32(cmbMaNV.Text.Trim());
                         string lydo = txtLyDo.Text.Trim();
                         string kyluat = txtKyLuat.Text.Trim();
                         DateTime ngayvp = Convert.ToDateTime(dtpNgayVP.Text.Trim());
@@ -953,6 +1058,14 @@ namespace GUI
                 }
                 else
                 {
+                    if (txtLyDo.Text.Trim().Length == 0)
+                    {
+                        errorVP.SetError(txtLyDo, "không được bỏ trống");
+                    }
+                    if (txtKyLuat.Text.Trim().Length == 0)
+                    {
+                        errorVP.SetError(txtKyLuat, "không được bỏ trống");
+                    }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
                 enebalVP();

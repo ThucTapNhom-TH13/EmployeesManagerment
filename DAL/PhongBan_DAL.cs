@@ -24,7 +24,18 @@ namespace DAL
             conn.Close();
             return dt;
         }
-
+        public static DataSet getPB()
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("SELECT maPB,tenPB FROM PhongBan", conn);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.SelectCommand = command;
+            DataSet dt = new DataSet();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
         public static void ThemPhongBan(PhongBan pb)
         {
             SqlConnection conn = SqlConnect.Connect();
