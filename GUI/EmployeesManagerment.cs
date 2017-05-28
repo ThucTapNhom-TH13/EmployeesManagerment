@@ -108,11 +108,11 @@ namespace GUI
                 cmbPB.DisplayMember = "maPB";
                 UnEnebal();
                 clearData();
-                btnThem_Duan.Text = "Lưu Thêm";
-                btnSua_Duan.Text = "Cannel";
+                btnThem_Duan.Text = "Lưu";
+                btnSua_Duan.Text = "Hủy";
                 btnXoa_Duan.Enabled = false;
             }
-            else if (btnThem_Duan.Text == "Lưu Thêm")
+            else if (btnThem_Duan.Text == "Lưu")
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
@@ -163,7 +163,28 @@ namespace GUI
                     Enebal();
                 }
             }
-            else if (btnThem_Duan.Text == "Lưu Sửa")
+            else
+            {
+                btnThem_Duan.Text = "Thêm";
+                btnSua_Duan.Text = "Sửa";
+                btnXoa_Duan.Enabled = true;
+                Enebal();
+            }
+
+        }
+
+        private void btnSua_Duan_Click(object sender, EventArgs e)
+        {
+            if (btnSua_Duan.Text == "Sửa")
+            {
+                UnEnebal();
+                cmbPB.Enabled = false;
+                btnThem_Duan.Text = "Hủy";
+                btnSua_Duan.Text = "Lưu";
+                btnXoa_Duan.Enabled = false;
+
+            }
+            else if (btnSua_Duan.Text == "Lưu")
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
@@ -187,8 +208,8 @@ namespace GUI
                     }
                     catch
                     {
-                       
-                        MessageBox.Show("Loi");
+
+                        MessageBox.Show("Lỗi không xác định");
                     }
                 }
                 else
@@ -203,20 +224,6 @@ namespace GUI
                     }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
-            }
-
-        }
-
-        private void btnSua_Duan_Click(object sender, EventArgs e)
-        {
-            if (btnSua_Duan.Text == "Sửa")
-            {
-                UnEnebal();
-                cmbPB.Enabled = false;
-                btnThem_Duan.Text = "Lưu Sửa";
-                btnSua_Duan.Text = "Cannel";
-                btnXoa_Duan.Enabled = false;
-
             }
             else
             {
@@ -306,12 +313,12 @@ namespace GUI
                 cmbNV.DataSource = tblNhanVien_BUS.getNV().Tables[0];
                 cmbNV.DisplayMember = "maNV";
                 cmbNV.DisplayMember = "maNV";
-                btnThem_NVDA.Text = "Lưu Thêm";
-                btnSua_NVDA.Text = "Cannel";
+                btnThem_NVDA.Text = "Lưu";
+                btnSua_NVDA.Text = "Hủy";
                 btnXoa_NVDA.Enabled = false;
                 unenebalTHAM_GIA();
             }
-            else if (btnThem_NVDA.Text == "Lưu Thêm")
+            else if (btnThem_NVDA.Text == "Lưu")
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
@@ -356,7 +363,29 @@ namespace GUI
                     enebalTHAM_GIA();
                 }
             }
-            else if (btnThem_NVDA.Text == "Lưu Sửa")
+            else
+            {
+                btnThem_NVDA.Text = "Thêm";
+                btnSua_NVDA.Text = "Sửa";
+                btnXoa_NVDA.Enabled = true;
+                enebalTHAM_GIA();
+            }
+
+        }
+
+        private void btnSua_NVDA_Click(object sender, EventArgs e)
+        {
+            if (btnSua_NVDA.Text == "Sửa")
+            {
+                unenebalTHAM_GIA();
+                cmbDA.Enabled = false;
+                cmbNV.Enabled = false;
+                btnThem_NVDA.Text = "Hủy";
+                btnSua_NVDA.Text = "Lưu";
+                btnXoa_NVDA.Enabled = false;
+
+            }
+            else if (btnSua_NVDA.Text == "Lưu")
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
@@ -398,20 +427,6 @@ namespace GUI
                     }
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
-            }
-        }
-
-        private void btnSua_NVDA_Click(object sender, EventArgs e)
-        {
-            if (btnSua_NVDA.Text == "Sửa")
-            {
-                unenebalTHAM_GIA();
-                cmbDA.Enabled = false;
-                cmbNV.Enabled = false;
-                btnThem_NVDA.Text = "Lưu Sửa";
-                btnSua_NVDA.Text = "Cannel";
-                btnXoa_NVDA.Enabled = false;
-
             }
             else
             {
@@ -486,11 +501,11 @@ namespace GUI
             if ("Sửa".Equals(emplButton2.Text))
             {
                 emplButton2.Text = "Lưu";
+                emplButton1.Text = "Hủy";
                 readOnlyEmployeesViews(MODE_EDIT, false);
             }
-            else
+            else if ("Lưu".Equals(emplButton2.Text))
             {
-                emplButton2.Text = "Sửa";
                 if (!Catch.cNullTB(emplNameTxt.Text) & !Catch.cNullTB(emplIDTxt.Text))
                 {
                     try
@@ -517,8 +532,10 @@ namespace GUI
                         tblNhanVien_BUS.editEmployee(employee);
                         loadNhanVien();
                         readOnlyEmployeesViews(MODE_EDIT, true);
+                        emplButton2.Text = "Lưu";
+                        emplButton1.Text = "Sửa";
                     }
-                    catch(Exception excep)
+                    catch (Exception excep)
                     {
                         MessageBox.Show("Loi: " + excep.ToString());
                     }
@@ -527,6 +544,13 @@ namespace GUI
                 {
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
+            }
+            else
+            {
+                clearAllEmployeesViews();
+                readOnlyEmployeesViews(MODE_EDIT, true);
+                emplButton1.Text = "Thêm";
+                emplButton2.Text = "Sửa";
             }
         }
 
@@ -667,9 +691,11 @@ namespace GUI
             {
                 clearAllEmployeesViews();
                 readOnlyEmployeesViews(MODE_ADD, false);
-                changeButtonsStatus(MODE_ADD);
                 loadSupervisors(0);
-            }else
+                emplButton1.Text = "Lưu";
+                emplButton2.Text = "Hủy";
+            }
+            else if (emplButton1.Text.Equals("Lưu"))
             {
                 if (!Catch.cNullTB(emplNameTxt.Text))
                 {
@@ -696,19 +722,25 @@ namespace GUI
                         tblNhanVien_BUS.addEmployee(employee);
                         loadNhanVien();
                         readOnlyEmployeesViews(MODE_VIEW, true);
-                        changeButtonsStatus(MODE_VIEW);
+                        emplButton1.Text = "Thêm";
+                        emplButton2.Text = "Sửa";
                     }
                     catch (Exception excep)
                     {
                         MessageBox.Show("Error: \n " + excep.ToString());
-                        readOnlyEmployeesViews(MODE_VIEW, true);
-                        changeButtonsStatus(MODE_VIEW);
                     }
                 }
                 else
                 {
                     MessageBox.Show("Chưa nhập tên nhân viên");
                 }
+            }
+            else
+            {
+                clearAllEmployeesViews();
+                readOnlyEmployeesViews(MODE_ADD, true);
+                emplButton1.Text = "Thêm";
+                emplButton2.Text = "Sửa";
             }
         }
 
@@ -790,11 +822,11 @@ namespace GUI
                 cmbTP.DataSource = tblNhanVien_BUS.getTP().Tables[0];
                 cmbTP.DisplayMember = "nguoiGiamSat";
                 cmbTP.DisplayMember = "nguoiGiamSat";
-                btnThem_PB.Text = "Lưu Thêm";
-                btnSua_PB.Text = "Cannel";
+                btnThem_PB.Text = "Lưu";
+                btnSua_PB.Text = "Hủy";
                 btnXoa_PB.Enabled = false;
             }
-            else if (btnThem_PB.Text == "Lưu Thêm")
+            else if (btnThem_PB.Text == "Lưu")
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
@@ -832,7 +864,27 @@ namespace GUI
                 }
                 EnebalPB();
             }
-            else if (btnThem_PB.Text == "Lưu Sửa")
+            else
+            {
+                btnThem_PB.Text = "Thêm";
+                btnSua_PB.Text = "Sửa";
+                btnXoa_PB.Enabled = true;
+                Enebal();
+            }
+        }
+
+        private void btnSua_PB_Click(object sender, EventArgs e)
+        {
+            if (btnSua_PB.Text == "Sửa")
+            {
+                UnEnebalPB();
+                txtMaPB.Enabled = false;
+                btnThem_PB.Text = "Hủy";
+                btnSua_PB.Text = "Lưu";
+                btnXoa_PB.Enabled = false;
+
+            }
+            else if (btnSua_PB.Text == "Lưu")
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
@@ -846,7 +898,7 @@ namespace GUI
                         string diadiem = txtDD_PB.Text.Trim();
                         int matp = Convert.ToInt32(cmbTP.Text.Trim());
 
-                        PhongBan pb = new PhongBan(mapb,tenpb, diadiem, matp);
+                        PhongBan pb = new PhongBan(mapb, tenpb, diadiem, matp);
                         PhongBan_BUS.suaPhongBan(pb);
                         showPhongBan();
                         buidingPhongBan();
@@ -871,19 +923,6 @@ namespace GUI
                 }
                 EnebalPB();
             }
-        }
-
-        private void btnSua_PB_Click(object sender, EventArgs e)
-        {
-            if (btnSua_PB.Text == "Sửa")
-            {
-                UnEnebalPB();
-                txtMaPB.Enabled = false;
-                btnThem_PB.Text = "Lưu Sửa";
-                btnSua_PB.Text = "Cannel";
-                btnXoa_PB.Enabled = false;
-
-            }
             else
             {
                 btnThem_PB.Text = "Thêm";
@@ -891,6 +930,7 @@ namespace GUI
                 btnXoa_PB.Enabled = true;
                 Enebal();
             }
+            
         }
 
         private void btnXoa_PB_Click(object sender, EventArgs e)
@@ -985,12 +1025,12 @@ namespace GUI
                 cmbMaNV.DataSource = tblNhanVien_BUS.getNV().Tables[0];
                 cmbMaNV.DisplayMember = "maNV";
                 cmbMaNV.DisplayMember = "maNV";
-                btnThem.Text = "Lưu Thêm";
-                btnSua.Text = "Cannel";
+                btnThem.Text = "Lưu";
+                btnSua.Text = "Hủy";
                 btnXoa.Enabled = false;
                 unenebalVP();
             }
-            else if (btnThem.Text == "Lưu Thêm")
+            else if (btnThem.Text == "Lưu")
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
@@ -1030,7 +1070,28 @@ namespace GUI
                 }
                 enebalVP();
             }
-            else if (btnThem.Text == "Lưu Sửa")
+            else
+            {
+                btnThem.Text = "Thêm";
+                btnSua.Text = "Sửa";
+                btnXoa.Enabled = true;
+                enebalVP();
+            }
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (btnSua.Text == "Sửa")
+            {
+                unenebalVP();
+                txtMaViPham.Enabled = false;
+                btnThem.Text = "Hủy";
+                btnSua.Text = "Lưu";
+                btnXoa.Enabled = false;
+
+            }
+            else if (btnSua.Text == "Lưu")
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
@@ -1049,7 +1110,7 @@ namespace GUI
                         ViPham_BUS.suaViPham(vp);
                         showVP();
                         buidingVP();
-                        
+
                     }
                     catch
                     {
@@ -1069,19 +1130,6 @@ namespace GUI
                     MessageBox.Show("Chưa nhập dữ liệu");
                 }
                 enebalVP();
-            }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (btnSua.Text == "Sửa")
-            {
-                unenebalVP();
-                txtMaViPham.Enabled = false;
-                btnThem.Text = "Lưu Sửa";
-                btnSua.Text = "Cannel";
-                btnXoa.Enabled = false;
-
             }
             else
             {
