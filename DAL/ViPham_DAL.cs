@@ -24,7 +24,19 @@ namespace DAL
             conn.Close();
             return dt;
         }
+        public static DataTable thongke()
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("SELECT Vipham.maNV, count(maViPham) as Solanvipham FROM ViPham group by maNV", conn);
+            conn.Open();
 
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.SelectCommand = command;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
         public static void ThemViPham(ViPham vp)
         {
             SqlConnection conn = SqlConnect.Connect();

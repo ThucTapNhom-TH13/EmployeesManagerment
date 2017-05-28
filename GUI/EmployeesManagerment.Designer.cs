@@ -126,6 +126,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbMaNV = new System.Windows.Forms.ComboBox();
             this.dtpNgayVP = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -144,7 +145,7 @@
             this.KY_LUAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAY_VP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bgvThongke = new System.Windows.Forms.DataGridView();
+            this.dgvThongke = new System.Windows.Forms.DataGridView();
             this.dayOffTab = new System.Windows.Forms.TabPage();
             this.dayOffButton3 = new System.Windows.Forms.Button();
             this.dayOffButton2 = new System.Windows.Forms.Button();
@@ -171,7 +172,6 @@
             this.errorDA = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorThamgia = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorVP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbMaNV = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.emplTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -192,7 +192,7 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViPham)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bgvThongke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongke)).BeginInit();
             this.dayOffTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -1200,6 +1200,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông tin vi phạm";
             // 
+            // cmbMaNV
+            // 
+            this.cmbMaNV.FormattingEnabled = true;
+            this.cmbMaNV.Location = new System.Drawing.Point(110, 72);
+            this.cmbMaNV.Name = "cmbMaNV";
+            this.cmbMaNV.Size = new System.Drawing.Size(121, 21);
+            this.cmbMaNV.TabIndex = 13;
+            // 
             // dtpNgayVP
             // 
             this.dtpNgayVP.Location = new System.Drawing.Point(110, 150);
@@ -1310,6 +1318,8 @@
             this.dgvViPham.ReadOnly = true;
             this.dgvViPham.Size = new System.Drawing.Size(494, 418);
             this.dgvViPham.TabIndex = 0;
+            this.dgvViPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViPham_CellClick);
+            this.dgvViPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViPham_CellContentClick);
             // 
             // MA_VP
             // 
@@ -1348,7 +1358,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.bgvThongke);
+            this.tabPage2.Controls.Add(this.dgvThongke);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -1357,13 +1367,13 @@
             this.tabPage2.Text = "Thống kê vi phạm của nhân viên";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // bgvThongke
+            // dgvThongke
             // 
-            this.bgvThongke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bgvThongke.Location = new System.Drawing.Point(0, 0);
-            this.bgvThongke.Name = "bgvThongke";
-            this.bgvThongke.Size = new System.Drawing.Size(494, 418);
-            this.bgvThongke.TabIndex = 0;
+            this.dgvThongke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThongke.Location = new System.Drawing.Point(0, 0);
+            this.dgvThongke.Name = "dgvThongke";
+            this.dgvThongke.Size = new System.Drawing.Size(494, 418);
+            this.dgvThongke.TabIndex = 0;
             // 
             // dayOffTab
             // 
@@ -1592,14 +1602,6 @@
             // 
             this.errorVP.ContainerControl = this;
             // 
-            // cmbMaNV
-            // 
-            this.cmbMaNV.FormattingEnabled = true;
-            this.cmbMaNV.Location = new System.Drawing.Point(110, 72);
-            this.cmbMaNV.Name = "cmbMaNV";
-            this.cmbMaNV.Size = new System.Drawing.Size(121, 21);
-            this.cmbMaNV.TabIndex = 13;
-            // 
             // EmployeesManagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1637,7 +1639,7 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvViPham)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bgvThongke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongke)).EndInit();
             this.dayOffTab.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -1746,7 +1748,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvViPham;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView bgvThongke;
+        private System.Windows.Forms.DataGridView dgvThongke;
         private System.Windows.Forms.Button dayOffButton3;
         private System.Windows.Forms.Button dayOffButton2;
         private System.Windows.Forms.Button dayOffButton1;

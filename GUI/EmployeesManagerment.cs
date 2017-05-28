@@ -33,6 +33,7 @@ namespace GUI
             enebalVP();
             showVP();
             buidingVP();
+            Thongke();
         }
 
         /// <summary>
@@ -110,13 +111,13 @@ namespace GUI
                 clearData();
                 btnThem_Duan.Text = "Lưu";
                 btnSua_Duan.Text = "Hủy";
-                btnXoa_Duan.Enabled = false;
+                btnXoa_Duan.Visible = false;
             }
             else if (btnThem_Duan.Text == "Lưu")
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
-                btnXoa_Duan.Enabled = true;
+                btnXoa_Duan.Visible = true;
                 if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(cmbPB.Text))
                 {
                     try
@@ -167,7 +168,7 @@ namespace GUI
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
-                btnXoa_Duan.Enabled = true;
+                btnXoa_Duan.Visible = true;
                 Enebal();
             }
 
@@ -181,14 +182,14 @@ namespace GUI
                 cmbPB.Enabled = false;
                 btnThem_Duan.Text = "Hủy";
                 btnSua_Duan.Text = "Lưu";
-                btnXoa_Duan.Enabled = false;
+                btnXoa_Duan.Visible = false;
 
             }
             else if (btnSua_Duan.Text == "Lưu")
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
-                btnXoa_Duan.Enabled = true;
+                btnXoa_Duan.Visible = true;
                 if (!Catch.cNullTB(txtTenDuAn.Text) & !Catch.cNullTB(txtDiaDiem.Text) & !Catch.cNullTB(cmbPB.Text))
                 {
                     try
@@ -229,7 +230,7 @@ namespace GUI
             {
                 btnThem_Duan.Text = "Thêm";
                 btnSua_Duan.Text = "Sửa";
-                btnXoa_Duan.Enabled = true;
+                btnXoa_Duan.Visible = true;
                 Enebal();
             }
         }
@@ -315,14 +316,14 @@ namespace GUI
                 cmbNV.DisplayMember = "maNV";
                 btnThem_NVDA.Text = "Lưu";
                 btnSua_NVDA.Text = "Hủy";
-                btnXoa_NVDA.Enabled = false;
+                btnXoa_NVDA.Visible = false;
                 unenebalTHAM_GIA();
             }
             else if (btnThem_NVDA.Text == "Lưu")
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
-                btnXoa_NVDA.Enabled = true;
+                btnXoa_NVDA.Visible = true;
                 if (!Catch.cNullTB(cmbNV.Text) & !Catch.cNullTB(cmbDA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
                 {
                     try
@@ -367,7 +368,7 @@ namespace GUI
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
-                btnXoa_NVDA.Enabled = true;
+                btnXoa_NVDA.Visible = true;
                 enebalTHAM_GIA();
             }
 
@@ -382,14 +383,14 @@ namespace GUI
                 cmbNV.Enabled = false;
                 btnThem_NVDA.Text = "Hủy";
                 btnSua_NVDA.Text = "Lưu";
-                btnXoa_NVDA.Enabled = false;
+                btnXoa_NVDA.Visible = false;
 
             }
             else if (btnSua_NVDA.Text == "Lưu")
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
-                btnXoa_NVDA.Enabled = true;
+                btnXoa_NVDA.Visible = true;
                 if (!Catch.cNullTB(cmbNV.Text) & !Catch.cNullTB(cmbDA.Text) & !Catch.cNullTB(txtNV_TGIA.Text) & !Catch.cNullTB(txtSogio_TGIA.Text))
                 {
                     try
@@ -432,7 +433,7 @@ namespace GUI
             {
                 btnThem_NVDA.Text = "Thêm";
                 btnSua_NVDA.Text = "Sửa";
-                btnXoa_NVDA.Enabled = true;
+                btnXoa_NVDA.Visible = true;
                 enebalTHAM_GIA();
             }
         }
@@ -824,13 +825,13 @@ namespace GUI
                 cmbTP.DisplayMember = "nguoiGiamSat";
                 btnThem_PB.Text = "Lưu";
                 btnSua_PB.Text = "Hủy";
-                btnXoa_PB.Enabled = false;
+                btnXoa_PB.Visible = false;
             }
             else if (btnThem_PB.Text == "Lưu")
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
-                btnXoa_PB.Enabled = true;
+                btnXoa_PB.Visible = true;
                 if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(cmbTP.Text))
                 {
                     try
@@ -868,7 +869,7 @@ namespace GUI
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
-                btnXoa_PB.Enabled = true;
+                btnXoa_PB.Visible = true;
                 Enebal();
             }
         }
@@ -881,14 +882,14 @@ namespace GUI
                 txtMaPB.Enabled = false;
                 btnThem_PB.Text = "Hủy";
                 btnSua_PB.Text = "Lưu";
-                btnXoa_PB.Enabled = false;
+                btnXoa_PB.Visible = false;
 
             }
             else if (btnSua_PB.Text == "Lưu")
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
-                btnXoa_PB.Enabled = true;
+                btnXoa_PB.Visible = true;
                 if (!Catch.cNullTB(txtTenPB.Text) & !Catch.cNullTB(cmbTP.Text))
                 {
                     try
@@ -927,7 +928,7 @@ namespace GUI
             {
                 btnThem_PB.Text = "Thêm";
                 btnSua_PB.Text = "Sửa";
-                btnXoa_PB.Enabled = true;
+                btnXoa_PB.Visible = true;
                 Enebal();
             }
             
@@ -978,7 +979,18 @@ namespace GUI
         {
             dgvViPham.DataSource = ViPham_BUS.loadViPham();
         }
-
+        public void Thongke()
+        {
+            dgvThongke.DataSource = ViPham_BUS.Thongke();
+        }
+        private void dgvViPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+        private void dgvViPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
         public void clearVP()
         {
             txtMaViPham.Text = "";
@@ -1027,14 +1039,14 @@ namespace GUI
                 cmbMaNV.DisplayMember = "maNV";
                 btnThem.Text = "Lưu";
                 btnSua.Text = "Hủy";
-                btnXoa.Enabled = false;
+                btnXoa.Visible = false;
                 unenebalVP();
             }
             else if (btnThem.Text == "Lưu")
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
-                btnXoa.Enabled = true;
+                btnXoa.Visible = true;
                 if (!Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(cmbMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
                 {
                     try
@@ -1074,7 +1086,7 @@ namespace GUI
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
-                btnXoa.Enabled = true;
+                btnXoa.Visible = true;
                 enebalVP();
             }
 
@@ -1088,14 +1100,14 @@ namespace GUI
                 txtMaViPham.Enabled = false;
                 btnThem.Text = "Hủy";
                 btnSua.Text = "Lưu";
-                btnXoa.Enabled = false;
+                btnXoa.Visible = false;
 
             }
             else if (btnSua.Text == "Lưu")
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
-                btnXoa.Enabled = true;
+                btnXoa.Visible = true;
                 if (!Catch.cNullTB(txtMaViPham.Text) & !Catch.cNullTB(txtLyDo.Text) & !Catch.cNullTB(cmbMaNV.Text) & !Catch.cNullTB(txtKyLuat.Text))
                 {
                     try
@@ -1135,7 +1147,7 @@ namespace GUI
             {
                 btnThem.Text = "Thêm";
                 btnSua.Text = "Sửa";
-                btnXoa.Enabled = true;
+                btnXoa.Visible = true;
                 enebalVP();
             }
         }
@@ -1155,5 +1167,7 @@ namespace GUI
                 MessageBox.Show("Chưa nhập dữ liệu");
             }
         }
+
+        
     }
 }

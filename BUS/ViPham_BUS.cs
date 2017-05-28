@@ -15,6 +15,10 @@ namespace BUS
         {
             return ViPham_DAL.getViPham();
         }
+        public static DataTable Thongke()
+        {
+            return ViPham_DAL.thongke();
+        }
         public static void addViPham(ViPham vp)
         {
             ViPham_DAL.ThemViPham(vp);
