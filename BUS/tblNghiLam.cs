@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using Entity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    class tblNghiLam
+    public class tblNghiLam
     {
-        tblNghiLam dal_nghilam = new tblNghiLam();
-        public bool Insert(tblNghiLam nlam)
+        tblNghiLam_DAL dal_nghilam = new tblNghiLam_DAL();
+        public bool Insert(NghiLam nlam)
         {
             return dal_nghilam.Insert(nlam);
         }
-        public bool Delete(string maN)
+        public bool Delete(int maN)
         {
             return dal_nghilam.Delete(maN);
         }
-        public bool Update(tblNghiLam nlam)
+        public bool Update(NghiLam nlam)
         {
             return dal_nghilam.Update(nlam);
         }
@@ -29,6 +31,10 @@ namespace BUS
         public DataTable GET()
         {
             return dal_nghilam.GET();
+        }
+        public DataTable statistic()
+        {
+            return dal_nghilam.statistic();
         }
     }
 }

@@ -50,3 +50,20 @@ begin
 delete from NhanVien
 where maNV = @id
 end
+
+create proc nghiLam_insert (@manv int, @lydo nvarchar(100), @ngaynghi date, @cophep bit, @khongluong bit) as 
+begin
+	insert into NghiLam(maNV, lyDo, ngayNghi, coPhep, nghiKhongLuong)
+	values (@manv, @lydo, @ngaynghi, @cophep, @khongluong)
+end
+
+create proc nghiLam_update (@manv int, @lydo nvarchar(100), @ngaynghi date, @cophep bit, @khongluong bit, @ma int) as 
+begin
+	update NghiLam
+	set maNV = @manv, lyDo = @lydo, ngayNghi = @ngaynghi, coPhep = @cophep, nghiKhongLuong = @khongluong
+	where maNghi = @ma
+end
+
+create proc nghiLam_delete (@ma int) as begin
+	delete from NghiLam where maNghi = @ma
+end

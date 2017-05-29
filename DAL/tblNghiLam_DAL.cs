@@ -37,11 +37,25 @@ namespace DAL
                 return null;
             }
         }
+
+        public DataTable statistic()
+        {
+            SqlConnection conn = SqlConnect.Connect();
+            SqlCommand command = new SqlCommand("select NghiLam.maNV, tenNV, count(maNghi) as soLanNghi from NghiLam, NhanVien where NghiLam.maNV = NhanVien.maNV group by NghiLam.maNV, tenNV", conn);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.SelectCommand = command;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+
         public DataTable GET()
         {
             try
             {
-                string query = @"select *  from NghiLam";
+                string query = @"select maNghi, NghiLam.maNV, tenNV, ngayNghi, lyDo, coPhep, nghiKhongLuong from NghiLam, NhanVien where NghiLam.maNV = NhanVien.maNV";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -67,95 +81,64 @@ namespace DAL
 
         public bool Insert(NghiLam nlam)
         {
-            try
+            SqlConnection connection = SqlConnect.Connect();
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("nghiLam_insert", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@manv", nlam.maNV));
+            cmd.Parameters.Add(new SqlParameter("@lydo", nlam.lyDo));
+            cmd.Parameters.Add(new SqlParameter("@ngaynghi", nlam.ngayNghi));
+            cmd.Parameters.Add(new SqlParameter("@cophep", nlam.coPhep));
+            cmd.Parameters.Add(new SqlParameter("@khongluong", nlam.nghiKhongLuong));
+            int msg = cmd.ExecuteNonQuery();
+            if (msg > 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter("select* from NghiLam", conn);
-                DataRow r = null;
-                r["maNghi"] = nlam.Manghi;
-                r["ngayNghi"] = nlam.NgayNghi;
-                r["lyDo"] = nlam.LyDo;
-                r["coPhep"] = nlam.CoPhep;
-                r["nghiKhongLuong"] = nlam.NghiKhongLuong;
-                r["maNV"] = nlam.ManNV;
-                dt.Rows.Add(r);
-                SqlCommandBuilder cn = new SqlCommandBuilder(da);
-                da.Update(dt);
                 return true;
             }
-
-            catch
+            else
             {
                 return false;
             }
         }
-        public bool Delete(string maN)
+        public bool Delete(int maN)
         {
-            try
+            SqlConnection connection = SqlConnect.Connect();
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("nghiLam_delete", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ma", maN));
+            int msg = cmd.ExecuteNonQuery();
+            if (msg > 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter("select* from NghiLam", conn);
-                DataRow r = dt.Rows.Find(maN);
-                if (r != null)
-                {
-                    r.Delete();
-                }
-                SqlCommandBuilder cn = new SqlCommandBuilder(da);
-                da.Update(dt);
                 return true;
             }
-            catch
+            else
             {
                 return false;
             }
         }
         public bool Update(NghiLam nlam)
         {
-            try
+            SqlConnection connection = SqlConnect.Connect();
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("nghiLam_update", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@manv", nlam.maNV));
+            cmd.Parameters.Add(new SqlParameter("@lydo", nlam.lyDo));
+            cmd.Parameters.Add(new SqlParameter("@ngaynghi", nlam.ngayNghi));
+            cmd.Parameters.Add(new SqlParameter("@cophep", nlam.coPhep));
+            cmd.Parameters.Add(new SqlParameter("@khongluong", nlam.nghiKhongLuong));
+            cmd.Parameters.Add(new SqlParameter("@ma", nlam.ma));
+            int msg = cmd.ExecuteNonQuery();
+            if (msg > 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter("select* from NghiLam", conn);
-                DataRow r = dt.Rows.Find(nlam.Manghi);
-                if (r != null)
-                {
-                    r["ngayNghi"] = nlam.NgayNghi;
-                    r["lyDo"] = nlam.LyDo;
-                    r["coPhep"] = nlam.CoPhep;
-                    r["nghiKhongLuong"] = nlam.NghiKhongLuong;
-                    r["maNV"] = nlam.ManNV;
-                }
-                SqlCommandBuilder cn = new SqlCommandBuilder(da);
-                da.Update(dt);
                 return true;
             }
-            catch
+            else
             {
                 return false;
             }
 
         }
-        //public bool tatcasolannghi(nghilam nlam)
-        //{
-        //    try
-        //    {
-        //        DBconnect conn = new DBconnect();
-        //        con = conn.con;
-        //        con.Open();
-        //        SqlCommand cmd = new SqlCommand("sp_tennv", con);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        SqlParameter p = new SqlParameter("@Ma", nlam.ManNV);
-        //        cmd.Parameters.Add(p);
-        //        SqlDataAdapter dg = new SqlDataAdapter(cmd);
-        //        DataTable dt = new DataTable();
-        //        dg.Fill(dt);
-        //        if (nlam.ManNV != null)
-        //        {
-        //            textBox2.Text = Convert.ToString(dt.Rows[0]["HOTEN"]);
-        //        }
-        //        SqlCommandBuilder cn = new SqlCommandBuilder(da);
-        //        da.Update(dt);
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
     }
 }

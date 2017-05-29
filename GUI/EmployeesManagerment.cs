@@ -34,11 +34,47 @@ namespace GUI
             showVP();
             buidingVP();
             Thongke();
+
+            enableDayOffField(false);
+            dayoffTableLoad();
+            dayoffStatisticLoad();
         }
 
-        /// <summary>
-        /// BANG DU AN
-        /// </summary>
+        private void enableDayOffField(bool status)
+        {
+            dayOffIDTxt.Enabled = false;
+            dayOffEmplIdTxt.Enabled = status;
+            dayOffEmplNameTxt.Enabled = false;
+            dayOffReasonTxt.Enabled = status;
+            dayOffDatepicker.Enabled = status;
+            isWithPermission.Enabled = status;
+            isPaidLeave.Enabled = status;
+        }
+
+        private void clearDayoffFieldValues()
+        {
+            dayOffIDTxt.Text = "";
+            dayOffEmplIdTxt.Text = "";
+            dayOffEmplNameTxt.Text = "";
+            dayOffReasonTxt.Text = "";
+            isWithPermission.Checked = false;
+            isPaidLeave.Checked = false;
+        }
+
+        private void dayoffStatisticLoad()
+        {
+            tblNghiLam bus = new tblNghiLam();
+            DataTable table = bus.statistic();
+            emplDayOffStaticTable.DataSource = table;
+        }
+
+        private void dayoffTableLoad()
+        {
+            tblNghiLam bus = new tblNghiLam();
+            DataTable table = bus.GET();
+            allDayOffLeaveTable.DataSource = table;
+        }
+        
         public void showDu_An()
         {
             dgvDuAn.DataSource = tblDuAn_BUS.loadDu_An();
@@ -538,8 +574,8 @@ namespace GUI
                         tblNhanVien_BUS.editEmployee(employee);
                         loadNhanVien();
                         readOnlyEmployeesViews(MODE_EDIT, true);
-                        emplButton2.Text = "Lưu";
-                        emplButton1.Text = "Sửa";
+                        emplButton2.Text = "Sửa";
+                        emplButton1.Text = "Thêm";
                     }
                     catch (Exception excep)
                     {
@@ -1069,7 +1105,9 @@ namespace GUI
                         ViPham_BUS.addViPham(vp);
                         showVP();
                         buidingVP();
-                       
+                        Thongke();
+
+
                     }
                     catch
                     {
@@ -1133,6 +1171,7 @@ namespace GUI
                         ViPham_BUS.suaViPham(vp);
                         showVP();
                         buidingVP();
+                        Thongke();
 
                     }
                     catch
@@ -1181,6 +1220,184 @@ namespace GUI
             }
         }
 
-        
+        private void allDayOffLeaveTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int CurrentIndex = allDayOffLeaveTable.CurrentCell.RowIndex;
+
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[0].Value != null)
+            {
+                String manghi = allDayOffLeaveTable.Rows[CurrentIndex].Cells[0].Value.ToString();
+                dayOffIDTxt.Text = manghi;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[1].Value != null)
+            {
+                String manv = allDayOffLeaveTable.Rows[CurrentIndex].Cells[1].Value.ToString();
+                dayOffEmplIdTxt.Text = manv;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[2].Value != null)
+            {
+                String tennv = allDayOffLeaveTable.Rows[CurrentIndex].Cells[2].Value.ToString();
+                dayOffEmplNameTxt.Text = tennv;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[4].Value != null)
+            {
+                String lydo = allDayOffLeaveTable.Rows[CurrentIndex].Cells[4].Value.ToString();
+                dayOffReasonTxt.Text = lydo;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[3].Value != null)
+            {
+                String value = allDayOffLeaveTable.Rows[CurrentIndex].Cells[3].Value.ToString();
+                String[] datetime = value.Split('/', ' ');
+                DateTime date = new DateTime(Int32.Parse(datetime[2]), Int32.Parse(datetime[0]), Int32.Parse(datetime[1]));
+                dayOffDatepicker.Value = date;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[5].Value != null)
+            {
+                bool cophep = (bool) allDayOffLeaveTable.Rows[CurrentIndex].Cells[5].Value;
+                isWithPermission.Checked = cophep;
+            }
+            if (allDayOffLeaveTable.Rows[CurrentIndex].Cells[6].Value != null)
+            {
+                bool khongluong = (bool)allDayOffLeaveTable.Rows[CurrentIndex].Cells[6].Value;
+                isPaidLeave.Checked = khongluong;
+            }
+        }
+
+        private void dayOffButton1_Click(object sender, EventArgs e)
+        {
+            if (dayOffButton1.Text.Equals("Thêm"))
+            {
+                dayOffButton1.Text = "Lưu";
+                dayOffButton2.Text = "Hủy";
+                enableDayOffField(true);
+                clearDayoffFieldValues();
+            }
+            else if (dayOffButton1.Text.Equals("Hủy"))
+            {
+                dayOffButton1.Text = "Thêm";
+                dayOffButton2.Text = "Sửa";
+                enableDayOffField(false);
+                clearDayoffFieldValues();
+            }
+            else if (dayOffButton1.Text.Equals("Lưu"))
+            {
+                try
+                {
+                    if(dayOffEmplIdTxt.Text.Trim() == "")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Mã nhân viên không được để trống");
+                        return;
+                    }
+                    int manv = Int32.Parse(dayOffEmplIdTxt.Text.Trim());
+                    String lydo = dayOffReasonTxt.Text;
+                    DateTime ngaynghi = dayOffDatepicker.Value;
+                    bool cophep = isWithPermission.Checked;
+                    bool khngluong = isPaidLeave.Checked;
+                    NghiLam nghilam = new NghiLam(manv, lydo, ngaynghi, cophep, khngluong);
+                    tblNghiLam bus = new tblNghiLam();
+                    bool result = bus.Insert(nghilam); 
+                    if (result)
+                        System.Windows.Forms.MessageBox.Show("Thêm thành công");
+                    else
+                        System.Windows.Forms.MessageBox.Show("Thêm không thành công");
+                    dayOffButton1.Text = "Thêm";
+                    dayOffButton2.Text = "Sửa";
+                    enableDayOffField(false);
+                    clearDayoffFieldValues();
+                    dayoffStatisticLoad();
+                    dayoffTableLoad();
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("Lỗi");
+                    enableDayOffField(false);
+                    clearDayoffFieldValues();
+                    dayOffButton1.Text = "Thêm";
+                    dayOffButton2.Text = "Sửa";
+                }
+
+            }
+        }
+
+        private void dayOffButton2_Click(object sender, EventArgs e)
+        {
+            if (dayOffButton2.Text.Equals("Sửa"))
+            {
+                if (dayOffIDTxt.Text.Trim() == "")
+                {
+                    System.Windows.Forms.MessageBox.Show("Chọn 1 bản ghi để sửa");
+                    return;
+                }
+                dayOffButton2.Text = "Lưu";
+                dayOffButton1.Text = "Hủy";
+                enableDayOffField(true);
+            }
+            else if (dayOffButton2.Text.Equals("Hủy"))
+            {
+                dayOffButton1.Text = "Thêm";
+                dayOffButton2.Text = "Sửa";
+                enableDayOffField(false);
+                clearDayoffFieldValues();
+            }
+            else if (dayOffButton2.Text.Equals("Lưu"))
+            {
+                try
+                {
+                    if (dayOffEmplIdTxt.Text.Trim() == "")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Mã nhân viên không được để trống");
+                        return;
+                    }
+                    int ma = Int32.Parse(dayOffIDTxt.Text.Trim());
+                    int manv = Int32.Parse(dayOffEmplIdTxt.Text.Trim());
+                    String lydo = dayOffReasonTxt.Text;
+                    DateTime ngaynghi = dayOffDatepicker.Value;
+                    bool cophep = isWithPermission.Checked;
+                    bool khngluong = isPaidLeave.Checked;
+                    NghiLam nghilam = new NghiLam(ma, manv, lydo, ngaynghi, cophep, khngluong);
+                    tblNghiLam bus = new tblNghiLam();
+                    bool result = bus.Update(nghilam);
+                    if (result)
+                        System.Windows.Forms.MessageBox.Show("Sửa thành công");
+                    else
+                        System.Windows.Forms.MessageBox.Show("Sửa không thành công");
+                    dayOffButton1.Text = "Thêm";
+                    dayOffButton2.Text = "Sửa";
+                    enableDayOffField(false);
+                    dayoffStatisticLoad();
+                    dayoffTableLoad();
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("Lỗi không xác định");
+                    dayOffButton1.Text = "Thêm";
+                    dayOffButton2.Text = "Sửa";
+                    enableDayOffField(false);
+                    clearDayoffFieldValues();
+                }
+
+            }
+        }
+
+        private void dayOffButton3_Click(object sender, EventArgs e)
+        {
+            if (dayOffEmplIdTxt.Text.Trim() == "")
+            {
+                System.Windows.Forms.MessageBox.Show("Chọn một bản ghi để xóa");
+                return;
+            }
+            int ma = Int32.Parse(dayOffIDTxt.Text.Trim());
+            tblNghiLam bus = new tblNghiLam();
+            bool result = bus.Delete(ma);
+            if (result)
+                System.Windows.Forms.MessageBox.Show("Xóa thành công");
+            else
+                System.Windows.Forms.MessageBox.Show("Xóa không thành công");
+            dayOffButton1.Text = "Thêm";
+            dayOffButton2.Text = "Sửa";
+            enableDayOffField(false);
+            dayoffStatisticLoad();
+            dayoffTableLoad();
+        }
     }
 }
