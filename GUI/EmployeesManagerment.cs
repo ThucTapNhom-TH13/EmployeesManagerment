@@ -170,6 +170,8 @@ namespace GUI
                 btnSua_Duan.Text = "Sửa";
                 btnXoa_Duan.Visible = true;
                 Enebal();
+                showDu_An();
+                buidingDu_An();
             }
 
         }
@@ -232,6 +234,8 @@ namespace GUI
                 btnSua_Duan.Text = "Sửa";
                 btnXoa_Duan.Visible = true;
                 Enebal();
+                showDu_An();
+                buidingDu_An();
             }
         }
 
@@ -435,6 +439,7 @@ namespace GUI
                 btnSua_NVDA.Text = "Sửa";
                 btnXoa_NVDA.Visible = true;
                 enebalTHAM_GIA();
+
             }
         }
 
@@ -871,6 +876,8 @@ namespace GUI
                 btnSua_PB.Text = "Sửa";
                 btnXoa_PB.Visible = true;
                 Enebal();
+                showPhongBan();
+                buidingPhongBan();
             }
         }
 
@@ -930,6 +937,8 @@ namespace GUI
                 btnSua_PB.Text = "Sửa";
                 btnXoa_PB.Visible = true;
                 Enebal();
+                showPhongBan();
+                buidingPhongBan();
             }
             
         }
@@ -1088,6 +1097,8 @@ namespace GUI
                 btnSua.Text = "Sửa";
                 btnXoa.Visible = true;
                 enebalVP();
+                showVP();
+                buidingVP();
             }
 
         }
@@ -1149,6 +1160,8 @@ namespace GUI
                 btnSua.Text = "Sửa";
                 btnXoa.Visible = true;
                 enebalVP();
+                showVP();
+                buidingVP();
             }
         }
 
