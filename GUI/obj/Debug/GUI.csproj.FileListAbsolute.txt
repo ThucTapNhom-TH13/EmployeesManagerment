@@ -74,3 +74,6 @@ F:\EmployeesManagerment\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 F:\EmployeesManagerment\GUI\obj\Debug\GUI.EmployeesManagerment.resources
 F:\EmployeesManagerment\GUI\obj\Debug\GUI.Properties.Resources.resources
 F:\EmployeesManagerment\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\bin\Debug\GUI.exe.config
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.exe
+C:\Users\Nguyen Linh\Documents\GitHub\EmployeesManagerment\GUI\obj\Debug\GUI.pdb
