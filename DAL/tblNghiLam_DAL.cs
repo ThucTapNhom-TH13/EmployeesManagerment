@@ -11,6 +11,7 @@ using Entity;
 
 namespace DAL
 {
+    // hien thi code tren database
     public class tblNghiLam_DAL:SqlConnect
     {
         DataTable dt = new DataTable();

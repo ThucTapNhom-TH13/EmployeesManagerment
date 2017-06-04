@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
+
     public class tblDu_An
     {
         private int maDuan;

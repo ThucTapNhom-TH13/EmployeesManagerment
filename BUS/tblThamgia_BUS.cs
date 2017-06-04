@@ -9,7 +9,7 @@ using System.Data;
 namespace BUS
 {
     public class tblThamgia_BUS
-    {
+    {// hienthi du lieu bang tham gia
         public static DataTable loadThamgia(int maduan)
         {
             return tblThamGia_DAL.getThamGia(maduan);
