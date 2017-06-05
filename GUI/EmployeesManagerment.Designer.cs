@@ -174,6 +174,8 @@
             this.errorDA = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorThamgia = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorVP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabControl1.SuspendLayout();
             this.emplTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -206,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorDA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorThamgia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorVP)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -215,11 +218,13 @@
             this.tabControl1.Controls.Add(this.projectTab);
             this.tabControl1.Controls.Add(this.violationTab);
             this.tabControl1.Controls.Add(this.dayOffTab);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(-1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(774, 503);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseClick);
             // 
             // emplTab
             // 
@@ -1631,6 +1636,25 @@
             // 
             this.errorVP.ContainerControl = this;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.webBrowser1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(766, 477);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Hướng dẫn";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(766, 477);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // EmployeesManagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1681,6 +1705,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorDA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorThamgia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorVP)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1832,6 +1857,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAY_VP;
         private System.Windows.Forms.DataGridViewTextBoxColumn MA_NV_VP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SO_LAN_VP;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

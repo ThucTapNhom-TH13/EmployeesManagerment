@@ -1399,5 +1399,10 @@ namespace GUI
             dayoffStatisticLoad();
             dayoffTableLoad();
         }
+
+        private void tabControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            webBrowser1.Navigate("https://docs.google.com/document/d/1-jvDGqkwo40Dz99t8fcup1dMc52bfz7--ch1n0UTlb4/edit");
+        }
     }
 }
